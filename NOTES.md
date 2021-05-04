@@ -18,5 +18,5 @@ En del af vores process skal være at følge
 instruktioner. Husk især iteration og designprincipper.
 Vi har arbejdet en grov ide. Ideen bliver udarbejdet i et seperat dokument.
 Theis er gået i gang med rough design sketches og drafts.
-Vi har tænkt os at bruge HTML, CSS og JavaScript/Typescript til frontend-applikation delen.
+Vi har tænkt os at bruge HTML, CSS og JavaScript/Typescript til frontend-applikation delen. Vi har 
 Maksim er gået i gang med at lærer HTML og CSS, så han kan være med, når det kommer til konstruktion af appen.
