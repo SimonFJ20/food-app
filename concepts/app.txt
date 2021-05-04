@@ -1,0 +1,48 @@
+krav:
+ bruger:
+  * navn
+  * email
+  * telefon nr.
+  * adgangskode
+  * addresse
+  * redigerbar
+
+  * kreditkort
+  * køn
+  * sexualitet
+  * børn
+  * forhold
+  * indkomst
+  * addresse
+
+ oprettelse af ny restaurant:
+  * rediger opslag
+  * mad:
+   * navn
+   * description
+   * tags (veganer, sund, italiensk, græsk osv)
+   * kategori/"type" (hvad er det tættest på, f.eks. burger, pizza osv.)
+   * info (kalorier osv)
+   * pointsystem (user ratings)
+   * pris
+   * billede?
+   * rediger
+  * navn på restaurant
+  * forklaring om deres principper/description
+  * addresse !!!
+  * tilbyder udlevering !
+  * externe links + kontaktinformation
+  * billede?
+  * næste knap/cancel knapper
+
+display:
+  * hvor langt væk de er addressemessigt?
+  * vej dertil med google maps?
+
+algoritme:
+  * type af mad
+  * distance
+  * point score
+  * pris
+  * tags
+  * andre krav (f.eks. skal kunne udlevere, skal kunne afhentes)
