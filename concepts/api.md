@@ -1,11 +1,15 @@
-# FeedMe API
+# FeeDdMe API
 All API endpoints requires authentication in the form of `token` unless otherwise specified.
 ## Users
+
+`/api/users/`
 
 ### POST /register
 #### **NO AUTH**
 
 registers a new user.
+
+`/api/users/register`
 
 Request
 ```ts
@@ -143,7 +147,30 @@ Response
 }
 ```
 
-## Restaurants
+## Food
 
-Gets data about restaurants.
+`/api/food/`
 
+### GET /getlist
+
+gets a list of food from relevant tags, category, point score and distance to user in order of relevancy
+
+`/api/food/getlist`
+
+Request
+```ts
+{
+    tags: string[]
+    categories: string[]
+    maxDistance: number
+}
+```
+
+Response
+```ts
+{
+    success: boolean,
+    response: 'success', 'incomplete', 'error'
+    food: Food[]
+}
+```
