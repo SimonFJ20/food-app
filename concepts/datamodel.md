@@ -3,9 +3,9 @@
 ### user
 key         | value
 ------------|-------
+id          | unique generated string
 name        | non-unique string
 password    | non-unique encrypted string
-id          | unique generated string
 token       | unique generated string
 address     | Location
 restaurants | Restaurant array
@@ -15,9 +15,9 @@ phone       | non-unique string
 ### restaurant
 key            | value
 ---------------|-------
+id             | unique generated string
 name           | non-unique string
 description    | non-unique string
-id             | unique generated string
 owner          | User
 score          | non-unique number
 address        | Location
@@ -29,9 +29,9 @@ display_image  | non-unique string
 ### food
 key         | value
 ------------|-------
+id          | unique generated string
 name        | non-unique string
 description | non-unique string
-id          | unique generated string
 score       | non-unique number
 price       | non-unique number
 image       | non-unique string
