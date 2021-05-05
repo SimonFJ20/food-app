@@ -33,4 +33,3 @@ Ja vi har brug for en manager. Vi kan ikke lave UX tests, integration, code revi
  - [ ] Lave et backend workflow. (Simon)
      - [ ] Lav en long term plan
      - [ ] Vælg nogle teknologier, NodeJS/Python, REST/GraphQL, MongoDB/PostgreSQL
- - [ ] Overtal Theis og Maksim til at opkalde prototyperne efter relaterende bilmærker. (Simon) 
