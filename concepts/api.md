@@ -151,11 +151,11 @@ Response
 
 `/api/food/`
 
-### GET /getlist
+### GET /getconstrainedlist
 
 gets a list of food from relevant tags, category, point score and distance to user in order of relevancy
 
-`/api/food/getlist`
+`/api/food/getconstrainedlist`
 
 Request
 ```ts
