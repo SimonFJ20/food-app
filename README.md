@@ -2,13 +2,9 @@
 
 ---
 
-### Priority TODO
+### Tidsplan
+![tidsplan-1 1 0](https://user-images.githubusercontent.com/28040410/117203019-d3132100-adee-11eb-820c-e5da9a4f1276.png)
 
- - [ ] Find på nogle passende roller, hvem der er ansvarlig for hvad.
- - [ ] Før dem ud i livet. Manager manage.
- - [ ] Lav en mere findetaljeret TODO liste.
-
-Ja vi har brug for en manager. Vi kan ikke lave UX tests, integration, code review og skrive noterne sammen den sidste aften.
 
 ---
 
@@ -33,4 +29,3 @@ Ja vi har brug for en manager. Vi kan ikke lave UX tests, integration, code revi
  - [ ] Lave et backend workflow. (Simon)
      - [ ] Lav en long term plan
      - [ ] Vælg nogle teknologier, NodeJS/Python, REST/GraphQL, MongoDB/PostgreSQL
- - [ ] Overtal Theis og Maksim til at opkalde prototyperne efter relaterende bilmærker. (Simon) 
