@@ -8,9 +8,9 @@ name        | non-unique string
 password    | non-unique encrypted string
 token       | unique generated string
 address     | Location
+email       | unique string
+phone       | unique string
 restaurants | Restaurant array
-email       | non-unique string
-phone       | non-unique string
 
 ### restaurant
 key            | value
@@ -24,7 +24,7 @@ address        | Location
 food_list      | Food array
 does_delivery  | boolean
 external_links | string-dictionary array [ {name: string, link: string } ]
-display_image  | non-unique string
+image          | non-unique string
 
 ### food
 key         | value
@@ -39,5 +39,8 @@ tags        | string array
 restaurant  | Restaurant
 
 
-### location
-derived from other api most likely google maps
+### Location
+key       | value
+----------|-------
+latitude  | non-unique number
+longitude | non-unique number
