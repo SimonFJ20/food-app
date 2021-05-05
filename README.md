@@ -12,6 +12,12 @@ Ja vi har brug for en manager. Vi kan ikke lave UX tests, integration, code revi
 
 ---
 
+### Tidplan
+![tidsplan-1 1 0](https://user-images.githubusercontent.com/28040410/117203019-d3132100-adee-11eb-820c-e5da9a4f1276.png)
+
+
+---
+
 ### TODO
 ##### [Udført] Opgave (Primær Ansvarlig)
 
