@@ -1,4 +1,4 @@
-# FeeDdMe API
+# FeedMe API
 All API endpoints requires authentication in the form of `token` unless otherwise specified.
 ## Users
 

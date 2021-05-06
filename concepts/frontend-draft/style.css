@@ -10,15 +10,22 @@ body {
 }
 
 #sidebar {
+    display: flex;
+    flex-direction: column;
     background: #2E9D50;
 
-    width: 0%;
+    width: 3.5rem;
     height: 100vh;
 }
 
-.menu {
-    background: #fff;
+#back {
+    font-size: inherit;
+    border: none;
+    outline: none;
+    background: transparent;
+}
 
+.menu {
     flex: 1;
 
     height: 100vh;
@@ -27,39 +34,23 @@ body {
     overflow: auto;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
 h1 {
     font-size: 1.75rem;
 }
 
-.divider {
-    background: #DDD;
-    
-    width: 100%;
-    height: 1px;
-    margin: 1rem 0;
-}
-.divider-transparency {
-    opacity: 0.2;
+h2 {
+    font-size: 1.325rem;
 }
 
-.input-label {
+label.input-label {
     display: block;
     letter-spacing: 0.05em;
 
     font-size: 0.9rem;
-    padding-top: 1em;
-    margin: 0.2rem;
+    margin-top: 1em;
 }
 
-.input-field {
+input.input-field {
     background: #EEE;
     padding: 0.5em;
     width: 13rem;
@@ -69,35 +60,38 @@ h1 {
     border-bottom: 1px solid gray;
     border-radius: 0.2rem 0.2rem 0 0;
 }
-.input-field:focus {
+input.input-field:focus {
     outline: none;
     border-bottom: 2px solid gray;
 }
 
-.btn-hamburger {
-    outline: none;
-    border: none;
-}
-
 .btn {
+    font-weight: 600;
     display: block;
     background: #CCC;
 
-    width: 8rem;
-    height: 2.75em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-
-    font-weight: 700;
+    padding: 0.5em 1em;
+    margin: 1em 0;
 
     outline: none;
     border: none;
-    border-radius: 1.325em;
+    border-radius: 0.2rem;
 }
 
-.btn-warning {
+.btn--important {
+    font-weight: 700;
+    background: #000;
+    color: #FFF;
+}
+
+.btn--warning {
+    font-weight: 700;
     background: #F00;
     color: #FFF;
+}
+
+.btn:active {
+    opacity: 0.8;
 }
 
 .btn:hover {
