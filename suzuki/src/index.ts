@@ -15,4 +15,6 @@ const index = async () => {
     
 }
 
-index().catch((error) => console.error(error));
+index().catch((error) => {
+    console.error(error);
+});
