@@ -10,10 +10,19 @@ body {
 }
 
 #sidebar {
+    display: flex;
+    flex-direction: column;
     background: #2E9D50;
 
-    width: 0%;
+    width: 3.5rem;
     height: 100vh;
+}
+
+#back {
+    font-size: inherit;
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
 .menu {
