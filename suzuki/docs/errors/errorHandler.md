@@ -1,5 +1,8 @@
 
 # errorHander.ts
+
+`./src/errors/errorHandler.ts`
+
 **Stores, prints and handles errors**
 
 - [errorHander.ts](#errorhanderts)
