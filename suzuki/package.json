@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "start": "node dist/index.js",
     "dev": "nodemon dist/index.js",
     "build": "tsc",
