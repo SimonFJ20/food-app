@@ -5,30 +5,22 @@
     font-size: 1rem;
 }
 
-body {
-    display: flex;
-}
-
-#sidebar {
-    display: flex;
-    flex-direction: column;
+#toolbar {
     background: #2E9D50;
 
-    width: 3.5rem;
-    height: 100vh;
-}
+    position: fixed;
 
-#back {
-    font-size: inherit;
-    border: none;
-    outline: none;
-    background: transparent;
+    bottom: 0;
+
+    text-align: center;
+
+    width: 100vw;
+    height: 10vh;
 }
 
 .menu {
-    flex: 1;
-
-    height: 100vh;
+    width: 100vw;
+    height: 90vh;
     padding: 1rem;
 
     overflow: auto;
@@ -88,6 +80,16 @@ input.input-field:focus {
     font-weight: 700;
     background: #F00;
     color: #FFF;
+}
+
+.btn--text {
+    background: transparent;
+    font-weight: 400;
+    text-decoration: underline;
+    padding: 0.25em;
+    margin: 1em 0;
+    
+    color: #000;
 }
 
 .btn:active {

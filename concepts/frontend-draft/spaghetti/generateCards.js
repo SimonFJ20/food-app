@@ -66,7 +66,7 @@ generateCards([
     },
     {
         name: 'Test',
-        description: 'Lorem Ipsum Dolor Sit Amet',
+        description: 'Lorem Ipsum Dolor Sit Amet Lorem Sit Amet Lorem Sit Amet',
         imageSource: 'vodka.jpg',
         tags: [
             'Lorem',

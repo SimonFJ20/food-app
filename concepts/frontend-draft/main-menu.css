@@ -3,7 +3,7 @@
     border: none;
     border-bottom: 1px solid #CCC;
     padding: 0.5em;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     margin-bottom: 2rem;
     transition: all 0.1s linear;
@@ -17,7 +17,7 @@
 
 .card {
     background: #EEE;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -25,6 +25,7 @@
 .card__image {
     width: 100%;
     border-radius: 1rem 1rem 0 0;
+    background-color: #000;
     height: 8rem;
     object-fit: cover;
 }
@@ -66,4 +67,24 @@
 .card__tag--green {
     background-color: rgba(30, 200, 50, 0.6);
     border-color: rgb(30, 200, 50);
+}
+
+#food-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    background: Rgba(0, 0, 0, 0.5)
+}
+
+#food-info__card {
+    max-width: none;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    margin: 1rem;
+}
+
+#nutrient-table * {
+    border: 1px solid black;
 }

@@ -11,12 +11,8 @@
     <link rel="stylesheet" href="main-menu.css">
 </head>
 <body>
-    <div id="sidebar">
-        ☰
-    </div>
-
     <!-- settings menu design -->   
-    <!-- <div class="menu">
+    <div class="menu" hidden>
 
         <h1>
             Bruger
@@ -44,12 +40,94 @@
 
         <button class="btn btn--warning">Slet Konto</button>
 
-    </div>-->
-    <!-- main screen design -->
-    <div class="menu" id="main-menu">
-        <input id="food-search" type="search" placeholder="søg...">
     </div>
 
+    <!-- main screen design -->
+    <div id="main-menu" class="menu">
+        <input id="food-search" type="search" placeholder="🔍 søg...">
+
+        <div id="food-info">
+            <div id="food-info__card" class="card">
+                <img src="vodka.jpg" class="card__image">
+                <div class="card__content">
+                    <h3>Test</h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <table id="nutrient-table">
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                          </tr>
+                          <tr>
+                            <td>Kalorier</td>
+                            <td>5 millioner</td>
+                          </tr>
+                          <tr>
+                            <td>Chance for kræft</td>
+                            <td>Nok ret høj</td>
+                          </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--login/register screen-->
+    <div id="register" class="menu" hidden>
+
+        <h1>Registrer Bruger</h1>
+        
+        <label for="username-input" class="input-label">navn</label>
+        <input id="username-input" type="text" class="input-field">
+
+        <label for="address-input" class="input-label">addresse</label>
+        <input id="address-input" type="text" class="input-field">
+
+        <label for="email-input" class="input-label">email</label>
+        <input id="email-input" type="email" class="input-field">
+
+        <label for="phone-input" class="input-label">telefon nr.</label>
+        <input id="phone-input" type="tel" class="input-field">
+
+        <label for="password-input" class="input-label">adgangskode</label>
+        <input id="password-input" type="password" class="input-field">
+
+        <button class="btn">Skab Konto</button>
+        <button class="btn btn--text">Jeg har allerede en konto</button>
+    </div>
+
+    <div id="login" class="menu" hidden>
+
+        <h1>Login</h1>
+        
+        <label for="email-input" class="input-label">email eller telefon nr.</label>
+        <input id="email-input" class="input-field">
+
+        <label for="password-input" class="input-label">adgangskode</label>
+        <input id="password-input" type="password" class="input-field">
+
+        <button class="btn">Login</button>
+        <button class="btn btn--text">Jeg har ikke en konto</button>
+    </div>
+
+    <!--toolbar lol-->
+
+
+    <div id="toolbar">
+        <button>
+            hey
+        </button>
+        <button>
+            hey
+        </button>
+        <button>
+            hey
+        </button>
+    </div>
+
+
+
     <script src="spaghetti/generateCards.js"></script>
+
 </body>
 </html>
