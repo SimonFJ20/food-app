@@ -1,4 +1,5 @@
 import { Router } from "express"
+import { Errors } from "../errors/errorHandler";
 import { registerRoute } from "./users/register";
 
 export const usersRoutes = () => {
@@ -8,12 +9,10 @@ export const usersRoutes = () => {
 
         router.use(registerRoute())
 
-    } catch(catchError) {
-        //console.error('userRoutes initialization failed:', error);
-        const error = catchError as Error;
-        console.log(error.name)
-        console.log(error.message)
-        console.log(typeof error.stack)
+    } catch(error) {
+        
+        Errors.log(error, './api/users.ts register routes')
+
     }
 
     return router;

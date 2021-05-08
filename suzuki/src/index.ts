@@ -1,23 +1,5 @@
-import express, { json, urlencoded } from "express";
-import cors from "cors";
-import { api } from "./api";
+import { server } from "./server";
 
-const port = 80;
 
-const index = async () => {
-    
-    const app = express();
-        
-    app.use(cors(), json(), urlencoded({extended: true}));
+server(80);
 
-    app.use(api());
-    
-    app.listen(port, () => {
-        console.log('Suzuki on port', port);
-    });
-    
-}
-
-index().catch((error) => {
-    console.error(error);
-});
