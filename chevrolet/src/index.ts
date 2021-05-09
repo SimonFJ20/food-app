@@ -1,5 +1,6 @@
 import './body.scss';
 import { loginScreen } from "./loginScreen/loginScreen";
+import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
 document.head.innerHTML += /*html*/`
@@ -8,7 +9,7 @@ document.head.innerHTML += /*html*/`
 `;
 
 
-loginScreen()
+settingsScreen();
 
 
 
