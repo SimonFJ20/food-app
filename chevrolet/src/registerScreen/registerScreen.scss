@@ -1,0 +1,58 @@
+
+#RegisterScreen {
+    width: 100vw;
+    height: 90vh;
+    padding: 1rem;
+    overflow: auto;
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    label {
+        display: block;
+        letter-spacing: 0.05em;
+        font-size: 0.9rem;
+        margin-top: 1em;
+    }
+
+    input {
+        background: #EEE;
+        padding: 0.5em;
+        width: 13rem;
+        height: 2.75em;
+        border: none;
+        border-bottom: 1px solid gray;
+        border-radius: 0.2rem 0.2rem 0 0;
+    }
+
+    button {
+        font-weight: 600;
+        display: block;
+        background: #CCC;
+        padding: 0.5em 1em;
+        margin: 1em 0;
+        outline: none;
+        border: none;
+        border-radius: 0.2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            opacity: 0.8;
+        }
+
+    }
+
+    button.text {
+        background: transparent;
+        font-weight: 400;
+        text-decoration: underline;
+        padding: 0.25em;
+        margin: 1em 0;
+        color: #000;
+    }
+
+}
