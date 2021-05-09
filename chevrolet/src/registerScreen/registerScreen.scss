@@ -24,6 +24,12 @@
         border: none;
         border-bottom: 1px solid gray;
         border-radius: 0.2rem 0.2rem 0 0;
+        
+        &:focus {
+            outline: none;
+            border-bottom: 2px solid gray;
+        }
+        
     }
 
     button {

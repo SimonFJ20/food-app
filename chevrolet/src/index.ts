@@ -1,5 +1,6 @@
 import './body.scss';
 import { loginScreen } from "./loginScreen/loginScreen";
+import { registerScreen } from './registerScreen/registerScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
