@@ -4,7 +4,6 @@ import html from './registerScreen.html';
 import './registerScreen.scss';
 
 const setSubmitHandler = () => {
-
     document.getElementById('login')?.addEventListener('click', () => {
         loginScreen();
     })
@@ -15,7 +14,7 @@ export const registerScreen = () => {
 
     document.body.innerHTML += toolbar();
 
-
+    setSubmitHandler();
 }
 
 

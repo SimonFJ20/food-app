@@ -1,6 +1,5 @@
 import './body.scss';
 import { loginScreen } from "./loginScreen/loginScreen";
-import { registerScreen } from './registerScreen/registerScreen';
 
 document.title = 'FeedMe App Draft';
 document.head.innerHTML += /*html*/`
@@ -11,7 +10,6 @@ document.head.innerHTML += /*html*/`
 
 loginScreen()
 
-registerScreen()
 
 
 
