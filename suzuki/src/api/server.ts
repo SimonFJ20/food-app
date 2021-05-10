@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from "express";
 import cors from "cors";
 import { api } from "./api";
-import { Errors } from "./errors/errorHandler";
+import { Errors } from "../errors/errorHandler";
 
 export const server = async (port: number) => {
 
