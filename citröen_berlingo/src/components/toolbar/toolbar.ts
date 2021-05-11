@@ -8,6 +8,9 @@ import searchSelectImage from './search-select.png'
 import deliveriesImage from './deliveries.png'
 import deliveriesSelectImage from './deliveries-select.png'
 import { removeEventlistenersOnId } from '../../utils';
+import { listScreen } from '../../listScreen/listScreen';
+import { settingsScreen } from '../../settingsScreen/settingsScreen';
+import { deliveriesScreen } from '../../deliveriesScreen/deliveriesScreen';
 
 export const toolbar = () => {
     let returnHtml = html;
@@ -46,26 +49,25 @@ export const toolbar = () => {
 }
 
 export const toolbarInit = () => {
-    const params = new URLSearchParams(window.location.search);
+    const url = new URL(window.location.toString());
 
     removeEventlistenersOnId('settingsToolbar')
     removeEventlistenersOnId('searchToolbar')
     removeEventlistenersOnId('deliveriesToolbar')
 
     document.getElementById('settingsToolbar')?.addEventListener('click', () => {
-        params.set('p', 'settings')
-
-        window.location.search = params.toString();
+        url.searchParams.set('p', 'settings');
+        window.history.pushState({}, '', url.toString());
+        settingsScreen();
     })
     document.getElementById('searchToolbar')?.addEventListener('click', () => {
-        params.set('p', 'list')
-
-        window.location.search = params.toString();
-
+        url.searchParams.set('p', 'list');
+        window.history.pushState({}, '', url.toString());
+        listScreen();
     })
     document.getElementById('deliveriesToolbar')?.addEventListener('click', () => {
-        params.set('p', 'deliveries')
-
-        window.location.search = params.toString();
+        url.searchParams.set('p', 'deliveries');
+        window.history.pushState({}, '', url.toString());
+        deliveriesScreen();
     })
 }
