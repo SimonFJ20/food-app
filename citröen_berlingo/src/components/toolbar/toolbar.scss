@@ -5,7 +5,21 @@
     bottom: 0;
     text-align: center;
     width: 100vw;
-    height: 10vh;
+    height: 4rem;
+
+    button {
+        box-sizing: border-box;
+        background: transparent;
+        outline: none;
+        border: none;
+        padding: 0.5rem;
+        height: 100%;
+
+        img {
+            height: 100%;
+            pointer-events: none;
+        }
+    }
 }
 
 

@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 90vh;
+    height: calc(100vh - 4rem);
     background: rgba(0, 0, 0, 0.5);
 
     #card {
