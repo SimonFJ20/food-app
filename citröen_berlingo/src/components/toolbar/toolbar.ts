@@ -10,12 +10,12 @@ import deliverySelectImage from './delivery-select.png'
 
 export const toolbar = () => {
     let returnHtml = html;
-    returnHtml.replace(/{{settingsImage}}/g, settingsImage)
-    returnHtml.replace(/{{settingsSelectImage}}/g, settingsSelectImage)
-    returnHtml.replace(/{{searchImage}}/g, searchImage)
-    returnHtml.replace(/{{searchSelectImage}}/g, searchSelectImage)
-    returnHtml.replace(/{{deliveryImage}}/g, deliveryImage)
-    returnHtml.replace(/{{deliverySelectImage}}/g, deliverySelectImage)    
+    returnHtml = returnHtml.replace(/{{settingsImage}}/g, settingsImage)
+    returnHtml = returnHtml.replace(/{{settingsSelectImage}}/g, settingsSelectImage)
+    returnHtml = returnHtml.replace(/{{searchImage}}/g, searchImage)
+    returnHtml = returnHtml.replace(/{{searchSelectImage}}/g, searchSelectImage)
+    returnHtml = returnHtml.replace(/{{deliveryImage}}/g, deliveryImage)
+    returnHtml = returnHtml.replace(/{{deliverySelectImage}}/g, deliverySelectImage)    
 
     return returnHtml;
 }
