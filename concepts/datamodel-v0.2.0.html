@@ -39,7 +39,7 @@
 <body>
     
     <table>
-        <tr>
+        <tr style="background-color: lightblue;">
             <th>Users</th>
             <th>Table</th>
         </tr>
@@ -74,13 +74,13 @@
     </table>
     
     <table>
-        <tr>
-            <th>Produkt</th>
+        <tr style="background-color: pink;">
+            <th>Product</th>
             <th>Table</th>
         </tr>
         <tr>
             <td>id</td>
-            <td>ProduktId</td>
+            <td>ProductId</td>
         </tr>
         <tr>
             <td>createdAt</td>
@@ -102,18 +102,18 @@
             <td>coverImage</td>
             <td>ImageLink (string)</td>
         </tr>
-        <tr>
+        <tr style="background-color: lightyellow;">
             <td>tags</td>
-            <td>ProduktTag[]</td>
+            <td>ProductTag[]</td>
         </tr>
-        <tr>
+        <tr style="background-color: lightsalmon;">
             <td>restaurant</td>
             <td>RestaurantId</td>
         </tr>
     </table>
     
     <table>
-        <tr>
+        <tr style="background-color: lightsalmon;">
             <th>Restaurant</th>
             <th>Table</th>
         </tr>
@@ -133,7 +133,7 @@
             <td>description</td>
             <td>req string</td>
         </tr>
-        <tr>
+        <tr style="background-color: lightblue;">
             <td>owner</td>
             <td>req UserId</td>
         </tr>
@@ -160,7 +160,7 @@
     </table>
     
     <table>
-        <tr>
+        <tr style="background-color: lightyellow;">
             <th>Tags</th>
             <th>Table</th>
         </tr>
@@ -183,7 +183,7 @@
     </table>
     
     <table>
-        <tr>
+        <tr style="background-color: lightgreen;">
             <th>Sessions</th>
             <th>Table</th>
         </tr>
@@ -195,9 +195,13 @@
             <td>createdAt</td>
             <td>init Date()</td>
         </tr>
-        <tr>
+        <tr style="background-color: lightblue;">
             <td>user</td>
             <td>UserId</td>
+        </tr>
+        <tr>
+            <td>token</td>
+            <td>req unique string</td>
         </tr>
         <tr>
             <td>expireAt</td>
