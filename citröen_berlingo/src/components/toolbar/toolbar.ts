@@ -1,6 +1,9 @@
 import html from './toolbar.html';
 import './toolbar.scss';
 
+import { listScreen } from '../../listScreen/listScreen';
+import { settingsScreen } from '../../settingsScreen/settingsScreen';
+
 import settingsImage from './settings.png'
 import settingsSelectImage from './settings-select.png'
 import searchImage from './search.png'
@@ -11,11 +14,23 @@ import deliverySelectImage from './delivery-select.png'
 export const toolbar = () => {
     let returnHtml = html;
     returnHtml = returnHtml.replace(/{{settingsImage}}/g, settingsImage)
-    returnHtml = returnHtml.replace(/{{settingsSelectImage}}/g, settingsSelectImage)
-    returnHtml = returnHtml.replace(/{{searchImage}}/g, searchImage)
-    returnHtml = returnHtml.replace(/{{searchSelectImage}}/g, searchSelectImage)
-    returnHtml = returnHtml.replace(/{{deliveryImage}}/g, deliveryImage)
-    returnHtml = returnHtml.replace(/{{deliverySelectImage}}/g, deliverySelectImage)    
+    .replace(/{{settingsSelectImage}}/g, settingsSelectImage)
+    .replace(/{{searchImage}}/g, searchImage)
+    .replace(/{{searchSelectImage}}/g, searchSelectImage)
+    .replace(/{{deliveryImage}}/g, deliveryImage)
+    .replace(/{{deliverySelectImage}}/g, deliverySelectImage);
 
     return returnHtml;
+}
+
+export const toolbarInit = () => {
+    document.getElementById('settingsToolbar')?.addEventListener('click', () => {
+        settingsScreen();
+    })
+    document.getElementById('searchToolbar')?.addEventListener('click', () => {
+        listScreen();
+    })
+    document.getElementById('deliveryToolbar')?.addEventListener('click', () => {
+        
+    })
 }

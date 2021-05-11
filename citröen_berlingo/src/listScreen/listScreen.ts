@@ -1,5 +1,5 @@
 import { cardViewer } from '../components/cardViewer/cardViewer';
-import { toolbar } from '../components/toolbar/toolbar';
+import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
 import html from './listScreen.html';
 import './listScreen.scss';
 import vodkaImage from './vodka.jpg';
@@ -21,6 +21,7 @@ const addCards = () => {
 export const listScreen = () => {
     document.body.innerHTML = html;
     document.body.innerHTML += toolbar();
+    toolbarInit();
 
     addCards();
 }
