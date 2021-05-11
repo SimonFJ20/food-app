@@ -1,0 +1,42 @@
+
+#CardViewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    background: rgba(0, 0, 0, 0.5);
+
+    #card {
+        max-width: none;
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+        margin: 1rem;
+        background: #EEE;
+        border-radius: 1rem;
+
+        img {
+            width: 100%;
+            border-radius: 1rem 1rem 0 0;
+            background-color: #000;
+            height: 8rem;
+            object-fit: cover;
+        }
+    
+        div {
+            width: 100%;
+            padding: 0.5rem;
+    
+            h3 {
+                font-size: 1.35rem;
+            }
+    
+            p {
+                font-size: 1.15rem;
+            }
+    
+        }
+
+    }
+
+}
