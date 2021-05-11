@@ -1,4 +1,4 @@
-import { toolbar } from '../components/toolbar/toolbar';
+import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
 import { User } from '../database';
 import { loginScreen } from '../loginScreen/loginScreen';
 import html from './registerScreen.html';
@@ -43,6 +43,7 @@ const setLoginHandler = () => {
 export const registerScreen = () => {
     document.body.innerHTML = html;
     document.body.innerHTML += toolbar();
+    toolbarInit();
 
     setLoginHandler();
     setSubmitHandler();

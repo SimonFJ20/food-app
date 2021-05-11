@@ -1,4 +1,5 @@
 import './body.scss';
+import { deliveriesScreen } from './deliveriesScreen/deliveriesScreen';
 import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
@@ -30,6 +31,9 @@ if(params.has('p')) {
             break;
         case 'settings':
             settingsScreen();
+            break;
+        case 'deliveries':
+            deliveriesScreen();
             break;
         default:
             listScreen();

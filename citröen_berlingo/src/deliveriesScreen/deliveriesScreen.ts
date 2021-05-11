@@ -1,7 +1,7 @@
 import { cardViewer } from '../components/cardViewer/cardViewer';
 import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
-import html from './listScreen.html';
-import './listScreen.scss';
+import html from './deliveriesScreen.html';
+import './deliveriesScreen.scss';
 import vodkaImage from './vodka.jpg';
 
 const addCardViewerRemover = () => {
@@ -19,7 +19,7 @@ const addCards = () => {
     }));
 }
 
-export const listScreen = () => {
+export const deliveriesScreen = () => {
     document.body.innerHTML = html;
     document.body.innerHTML += toolbar();
     toolbarInit();
