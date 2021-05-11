@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+            background-color: rgb(60, 60, 60);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: grid;
+            grid-template-columns: auto auto;
+            place-items: center;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0px;
+            background-color: white;
+            border: 2px solid black;
+            margin: 30px;
+        }
+        th {
+            padding: 10px;
+            border: 1px solid black;
+            border-bottom: 2px solid black;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        tr:nth-child(even) {
+            background-color: rgb(220, 220, 220);
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <th>Users</th>
+            <th>Table</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>UserId</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>init Date()</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>address</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>req unique string</td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td>req unique string</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>req enc string</td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <th>Produkt</th>
+            <th>Table</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>ProduktId</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>init Date()</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>userRating</td>
+            <td>number</td>
+        </tr>
+        <tr>
+            <td>coverImage</td>
+            <td>ImageLink (string)</td>
+        </tr>
+        <tr>
+            <td>tags</td>
+            <td>ProduktTag[]</td>
+        </tr>
+        <tr>
+            <td>restaurant</td>
+            <td>RestaurantId</td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <th>Restaurant</th>
+            <th>Table</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>RestaurantId</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>init Date()</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>owner</td>
+            <td>req UserId</td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td>Location</td>
+        </tr>
+        <tr>
+            <td>coverImage</td>
+            <td>ImageLink (string)</td>
+        </tr>
+        <tr>
+            <td>mainLink</td>
+            <td>req Link</td>
+        </tr>
+        <tr>
+            <td>links</td>
+            <td>Link[]</td>
+        </tr>
+        <tr>
+            <td>serviceDelivery</td>
+            <td>boolean</td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <th>Tags</th>
+            <th>Table</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>TagId[]</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>init Date()</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>req string</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>Color</td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <th>Sessions</th>
+            <th>Table</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>SessionId</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>init Date()</td>
+        </tr>
+        <tr>
+            <td>user</td>
+            <td>UserId</td>
+        </tr>
+        <tr>
+            <td>expireAt</td>
+            <td>init Date()</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
