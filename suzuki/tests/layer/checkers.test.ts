@@ -1,4 +1,4 @@
-import { exists, isType } from '../../src/layer/checkers';
+import { exists, isType, validateEmail } from '../../src/layer/checkers';
 
 test('check if number value in const exists', () => {
     const myVar = 5;
@@ -21,3 +21,14 @@ test('check null value let', () => {
     let myVar = null;
     expect(isType(myVar, 'null')).toBe(true);
 });
+
+
+
+test('check valid email is valid', () => {
+    expect(validateEmail('thisisatest@tests.com')).toBe(true);
+});
+
+test('check invalid email is invalid', () => {
+    expect(validateEmail('thisisnotanemail.com')).toBe(false);
+});
+
