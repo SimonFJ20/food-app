@@ -7,6 +7,7 @@ import searchImage from './search.png'
 import searchSelectImage from './search-select.png'
 import deliveriesImage from './deliveries.png'
 import deliveriesSelectImage from './deliveries-select.png'
+import { removeEventlistenersOnId } from '../../utils';
 
 export const toolbar = () => {
     let returnHtml = html;
@@ -46,6 +47,10 @@ export const toolbar = () => {
 
 export const toolbarInit = () => {
     const params = new URLSearchParams(window.location.search);
+
+    removeEventlistenersOnId('settingsToolbar')
+    removeEventlistenersOnId('searchToolbar')
+    removeEventlistenersOnId('deliveriesToolbar')
 
     document.getElementById('settingsToolbar')?.addEventListener('click', () => {
         params.set('p', 'settings')
