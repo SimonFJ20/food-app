@@ -1,0 +1,12 @@
+{
+  "name": "FeedMe",
+  "displayName": "FeedMe",
+  "expo": {
+    "name": "FeedMe",
+    "slug": "FeedMe",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
