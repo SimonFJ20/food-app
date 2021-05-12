@@ -53,6 +53,7 @@ test('check inapropriet name is invalid', () => {
 });
 
 
+
 test('check valid phonenumber without spaces is valid', () => {
     expect(validatePhone('60602456')).toBe(true);
 });
@@ -64,3 +65,7 @@ test('check valid phonenumber with spaces is valid', () => {
 test('check invalid phonenumber is invalid', () => {
     expect(validatePhone('60 602 45')).toBe(false);
 });
+
+
+
+

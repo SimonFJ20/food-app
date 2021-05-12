@@ -1,5 +1,6 @@
 import { TypeStrings } from "../utils/types";
 import Filter from 'bad-words';
+import { MapLocation } from "../models/MapLocation";
 
 export const exists = (...values: any[]) => {
     for(let i in values) if(values[i] === null || values[i] === undefined) return false;
@@ -26,3 +27,9 @@ export const validatePhone = (phone: string): boolean => {
     const re = /^\d{8}/;
     return re.test(phone.replace(/\s/g, ''));
 }
+
+export const validateMapLocation = (location: MapLocation): boolean => {
+    return location.latitude >= -90 && location.latitude <= 90
+    && location.longitude >= -180 && location.longitude <= 180;
+}
+

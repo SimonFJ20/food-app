@@ -12,3 +12,5 @@ export type CheckUserCreateResponse = CheckResponse | 'success' | 'email invalid
 
 
 export type TypeStrings = 'undefined' | 'boolean' | 'number' | 'string' | 'bigint' | 'symbol' | 'object' | 'function' | 'null';
+
+
