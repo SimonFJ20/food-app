@@ -1,4 +1,10 @@
-import { exists, isType, validateEmail } from '../../src/layer/checkers';
+import { 
+    exists,
+    isType,
+    validateEmail,
+    validateName,
+    validatePhone
+} from '../../src/layer/checkers';
 
 test('check if number value in const exists', () => {
     const myVar = 5;
@@ -32,3 +38,29 @@ test('check invalid email is invalid', () => {
     expect(validateEmail('thisisnotanemail.com')).toBe(false);
 });
 
+
+
+test('check valid name is valid', () => {
+    expect(validateName('Thies hollebæk Peiter')).toBe(true)
+});
+
+test('check invalid name is invalid', () => {
+    expect(validateName('jeg ErSej69')).toBe(false)
+});
+
+test('check inapropriet name is invalid', () => {
+    expect(validateName('fuck the jews')).toBe(false)
+});
+
+
+test('check valid phonenumber without spaces is valid', () => {
+    expect(validatePhone('60602456')).toBe(true);
+});
+
+test('check valid phonenumber with spaces is valid', () => {
+    expect(validatePhone('60 602 456')).toBe(true);
+});
+
+test('check invalid phonenumber is invalid', () => {
+    expect(validatePhone('60 602 45')).toBe(false);
+});

@@ -26,7 +26,7 @@ const callHandler = async (req: Parameters<Router>[0], res: Parameters<Router>[1
             return;
         }
         
-        const createUserResponse = createUser({
+        const createUserResponse = await createUser({
             name: req.body.name,
             address: req.body.address,
             email: req.body.address,
@@ -34,7 +34,17 @@ const callHandler = async (req: Parameters<Router>[0], res: Parameters<Router>[1
             password: req.body.password
         });
         
-        res.status(200).json({success: true, response: checkResponse})
+        res.status(200).json({
+            success: true,
+            response: checkResponse,
+            user: {
+                id: createUserResponse.id,
+                name: createUserResponse.name,
+                address: createUserResponse.address,
+                email: createUserResponse.email,
+                phone: createUserResponse.phone
+            }
+        });
     } catch(error) {
         res.status(500).json({success: true, response: 'error'});
         Errors.log(error, './api/users/register.ts callHandler');
