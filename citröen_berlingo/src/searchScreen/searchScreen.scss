@@ -1,0 +1,67 @@
+
+#SettingsScreen {
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    padding: 1rem;
+    overflow: auto;
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    label {
+        display: block;
+        letter-spacing: 0.05em;
+        font-size: 0.9rem;
+        margin-top: 1em;
+    }
+
+    input{
+        background: #EEE;
+        padding: 0.5em;
+        width: 13rem;
+        height: 2.75em;
+        border: none;
+        border-bottom: 1px solid gray;
+        border-radius: 0.2rem 0.2rem 0 0;
+
+        &:focus {
+            outline: none;
+            border-bottom: 2px solid gray;
+        }
+
+    }
+
+    button {
+        font-weight: 600;
+        display: block;
+        background: #CCC;
+        padding: 0.5em 1em;
+        margin: 1em 0;
+        outline: none;
+        border: none;
+        border-radius: 0.2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            opacity: 0.8;
+        }
+
+        &#upgrade {
+            font-weight: 700;
+            background: #000;
+            color: #FFF;
+        }
+
+        &#delete {
+            font-weight: 700;
+            background: #F00;
+            color: #FFF;
+        }
+
+    }
+
+}

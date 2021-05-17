@@ -2,6 +2,7 @@ import './body.scss';
 import { deliveriesScreen } from './deliveriesScreen/deliveriesScreen';
 import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
+import { searchScreen } from './searchScreen/searchScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
@@ -23,6 +24,9 @@ if(params.has('p')) {
     const page = params.get('p');
     
     switch(page) {
+        case 'search':
+            searchScreen();
+            break;
         case 'list':
             listScreen();
             break;
