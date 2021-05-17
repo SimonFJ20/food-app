@@ -1,5 +1,5 @@
 
-#SettingsScreen {
+#TagScreen {
     width: 100vw;
     height: calc(100vh - 4rem);
     padding: 1rem;
@@ -16,7 +16,7 @@
         margin-top: 1em;
     }
 
-    input{
+    input {
         background: #EEE;
         padding: 0.5em;
         width: 13rem;
@@ -30,6 +30,10 @@
             border-bottom: 2px solid gray;
         }
 
+    }
+
+    input[type=radio] {
+        height: initial;
     }
 
     button {

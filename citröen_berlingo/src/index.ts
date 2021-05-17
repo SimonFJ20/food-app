@@ -2,7 +2,7 @@ import './body.scss';
 import { deliveriesScreen } from './deliveriesScreen/deliveriesScreen';
 import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
-import { searchScreen } from './searchScreen/searchScreen';
+import { sortScreen } from './searchScreen/sortScreen/sortScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
@@ -24,8 +24,8 @@ if(params.has('p')) {
     const page = params.get('p');
     
     switch(page) {
-        case 'search':
-            searchScreen();
+        case 'sort': //temp
+            sortScreen();
             break;
         case 'list':
             listScreen();
@@ -43,7 +43,6 @@ if(params.has('p')) {
             listScreen();
             break;
     }
-    
 } else {
     listScreen();
 }
