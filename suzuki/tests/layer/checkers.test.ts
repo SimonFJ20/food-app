@@ -2,6 +2,7 @@ import {
     exists,
     isType,
     validateEmail,
+    validateMapLocation,
     validateName,
     validatePhone
 } from '../../src/layer/checkers';
@@ -68,4 +69,14 @@ test('check invalid phonenumber is invalid', () => {
 
 
 
+test('check valid location is valid', () => {
+    expect(validateMapLocation({latitude: 36, longitude: 36})).toBe(true);
+});
 
+test('check invalid too big location is invalid', () => {
+    expect(validateMapLocation({latitude: 360, longitude: 36})).toBe(false);
+});
+
+test('check invalid location is invalid', () => {
+    expect(validateMapLocation({latitude: 36, longitude: 360})).toBe(false);
+});
