@@ -9,34 +9,37 @@
         font-size: 1.75rem;
     }
 
-    label {
-        display: block;
-        margin-top: 1em;
-        margin-bottom: 0.5em;
+    div.option {
+        background-color: rgb(212, 212, 212);
+        border-radius: 10px;
+        margin: 5px;
+        margin-bottom: 15px;
+        padding: 5px;
+        text-align: center;
+        
+        &.active {
+            background-color: rgb(194, 151, 151);
+        }
+        
+        &:hover {            
+            cursor: pointer;
+        }
+        
+        h3 {
+            display: block;
+            margin: 15px;
+            font-weight: 600;
+        }
+        
+        p {
+            display: block;
+            margin: 15px;
+            font-weight: 500;
+        }
+        
     }
 
-    input {
-        background: #EEE;
-        padding: 0.5em;
-        width: 13rem;
-        height: 2.75em;
-        border: none;
-        border-bottom: 1px solid gray;
-        border-radius: 0.2rem 0.2rem 0 0;
-
-        &[type=radio] {
-            width: 1.5rem;
-            height: 1.5rem;
-            border: none;
-            border-radius: 1rem;
-        }
-
-        &:focus {
-            outline: none;
-            border-bottom: 2px solid gray;
-        }
-
-    }
+    
 
     button {
         font-weight: 600;
