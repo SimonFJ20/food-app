@@ -5,67 +5,41 @@
     padding: 1rem;
     overflow: auto;
 
+    display: flex;
+    flex-direction: column;
+
     h1 {
         font-size: 1.75rem;
+        margin-bottom: 0.5em;
     }
 
-    label {
-        display: block;
-        letter-spacing: 0.05em;
-        font-size: 0.9rem;
-        margin-top: 1em;
-    }
-
-    input {
-        background: #EEE;
+    #tagSearch {
         padding: 0.5em;
-        width: 13rem;
-        height: 2.75em;
-        border: none;
-        border-bottom: 1px solid gray;
-        border-radius: 0.2rem 0.2rem 0 0;
-
-        &:focus {
-            outline: none;
-            border-bottom: 2px solid gray;
-        }
-
     }
 
-    input[type=radio] {
-        height: initial;
-    }
+    #tagContainer {
+        display: flex;
+        margin: 1rem 0 0 0;
 
-    button {
-        font-weight: 600;
-        display: block;
-        background: #CCC;
-        padding: 0.5em 1em;
-        margin: 1em 0;
-        outline: none;
-        border: none;
-        border-radius: 0.2rem;
+        flex-direction: column;
+        flex: 1;
 
-        &:hover {
-            cursor: pointer;
+        button {
+            padding: 0.25em 0.5em;
+            text-align: left;
+
+            font-size: 1.2rem;
+
+            background: #eee;
+            border: 2px solid #ccc;
+            border-radius: 1rem;
+            
+
+            &:after {
+                content: "+";
+                float: right;
+            }
         }
-
-        &:active {
-            opacity: 0.8;
-        }
-
-        &#upgrade {
-            font-weight: 700;
-            background: #000;
-            color: #FFF;
-        }
-
-        &#delete {
-            font-weight: 700;
-            background: #F00;
-            color: #FFF;
-        }
-
     }
 
 }
