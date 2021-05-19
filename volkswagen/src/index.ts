@@ -2,7 +2,9 @@ import './body.scss';
 import { deliveriesScreen } from './deliveriesScreen/deliveriesScreen';
 import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
+import { locationScreen } from './searchScreen/locationScreen/locationScreen';
 import { sortScreen } from './searchScreen/sortScreen/sortScreen';
+import { tagScreen } from './searchScreen/tagScreen/tagScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
@@ -26,6 +28,12 @@ if(params.has('p')) {
     switch(page) {
         case 'sort': //temp
             sortScreen();
+            break;
+        case 'location':
+            locationScreen();
+            break;
+        case 'tags':
+            tagScreen();
             break;
         case 'list':
             listScreen();
