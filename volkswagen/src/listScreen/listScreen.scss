@@ -1,0 +1,88 @@
+
+#ListScreen {
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    padding: 1rem;
+    overflow: auto;
+
+    input#search {
+        background: #FFF;
+        border: none;
+        border-bottom: 1px solid #CCC;
+        padding: 0.5em;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 2rem;
+        transition: all 0.1s linear;
+
+        &:focus {
+            background: #F5F5F5;
+            outline: none;
+            border-bottom: 2px solid #CCC;
+            transition: all 0.1s linear;
+        }
+
+    }
+
+    #cards {
+
+        .card {
+            background: #EEE;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+
+            img {
+                width: 100%;
+                border-radius: 1rem 1rem 0 0;
+                background-color: #000;
+                height: 8rem;
+                object-fit: cover;
+            }
+
+            .content {
+                width: 100%;
+                padding: 0.5rem;
+
+                h1 {
+                    font-size: 1.35rem;
+                }
+
+                p {
+                    font-size: 1.15rem;
+                }
+
+                .tags {
+                    width: 100%;
+                    padding-top: 1em;
+
+                    p {
+                        display: inline-block;
+                        font-size: 0.75rem;
+                        margin: 0.1em;
+                        padding: 0.25em;
+                        background-color: rgba(127, 127, 127, 0.6);
+                        border: 1px solid rgb(127, 127, 127);
+                        border-radius: 1rem;
+                    }
+
+                    .red {
+                        background-color: rgba(200, 0, 50, 0.6);
+                        border-color: rgb(200, 0, 50);
+                    }
+
+                    .green {
+                        background-color: rgba(30, 200, 50, 0.6);
+                        border-color: rgb(30, 200, 50);
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
