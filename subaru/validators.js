@@ -26,3 +26,7 @@ exports.login = [
     .matches('[A-Z]').withMessage('Password Must Contain an Uppercase Letter')
     .trim().escape()
 ];
+
+exports.getTagsList = [
+    check('search').isString()
+];
