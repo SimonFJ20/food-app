@@ -26,7 +26,7 @@ if(params.has('p')) {
     const page = params.get('p');
     
     switch(page) {
-        case 'sort': //temp
+        case 'sort':
             sortScreen();
             break;
         case 'location':

@@ -18,27 +18,68 @@
     }
 
     #tagContainer {
-        display: flex;
         margin: 1rem 0 0 0;
 
         flex-direction: column;
         flex: 1;
+        overflow-y: scroll;
 
         button {
-            padding: 0.25em 0.5em;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.35em 0.5em;
+            margin: 0.2rem 0;
             text-align: left;
 
             font-size: 1.2rem;
 
             background: #eee;
-            border: 2px solid #ccc;
-            border-radius: 1rem;
+            /*border: 1.5px solid #ccc;*/
+            border-radius: 0.5rem;
+
+            transition: 0.2s linear;
+            transition-property: background-color, border-color;
+
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+            &.selected {
+                background-color: #81DA9B;
+                /*border-color: #2E9D50;*/
+
+                transition: 0.2s linear;
+                transition-property: background-color, border-color;
+            }
             
 
             &:after {
                 content: "+";
                 float: right;
+                transition: transform 0.2s linear;
             }
+
+            &.selected:after {
+                transform: rotateZ(45deg);
+                transition: transform 0.2s linear;
+            }
+        }
+    }
+
+    button {
+        font-weight: 600;
+        display: block;
+        background: #CCC;
+        padding: 0.5em 1em;
+        margin: 0.5em 0;
+        outline: none;
+        border: none;
+        border-radius: 0.2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            opacity: 0.8;
         }
     }
 
