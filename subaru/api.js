@@ -1,6 +1,7 @@
 const express = require('express');
 const validators = require('./validators');
 const register = require('./api/register');
+const login = require('./api/login');
 
 
 module.exports = api = async () => {
@@ -9,7 +10,7 @@ module.exports = api = async () => {
     
     
     router.post('/register', validators.register, register);
-    
+    router.post('/login', validators.login, login);
     
     
     
