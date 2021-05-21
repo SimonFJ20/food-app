@@ -11,6 +11,7 @@ import { removeEventlistenersOnId } from '../../utils';
 import { listScreen } from '../../listScreen/listScreen';
 import { settingsScreen } from '../../settingsScreen/settingsScreen';
 import { deliveriesScreen } from '../../deliveriesScreen/deliveriesScreen';
+import { tagScreen } from '../../searchScreen/tagScreen/tagScreen';
 
 export const toolbar = () => {
     let returnHtml = html;
@@ -61,9 +62,9 @@ export const toolbarInit = () => {
         settingsScreen();
     })
     document.getElementById('searchToolbar')?.addEventListener('click', () => {
-        url.searchParams.set('p', 'list');
+        url.searchParams.set('p', 'tags');
         window.history.pushState({}, '', url.toString());
-        listScreen();
+        tagScreen();
     })
     document.getElementById('deliveriesToolbar')?.addEventListener('click', () => {
         url.searchParams.set('p', 'deliveries');
