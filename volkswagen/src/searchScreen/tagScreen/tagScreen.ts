@@ -25,7 +25,7 @@ export const tagScreen = () => {
 
     // next button
 
-    let nextButton = document.getElementById('nextButton') as HTMLButtonElement;
+    const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
     nextButton.addEventListener('click', () => {
         const url = new URL(window.location.toString());
         url.searchParams.set('p', 'location');
@@ -36,7 +36,7 @@ export const tagScreen = () => {
 
 const tagClickHandler = (button: HTMLButtonElement) => {
     button.addEventListener('click', () => {
-        if (button.className == 'selected') {
+        if (button.className === 'selected') {
             button.className = '';
             selectedTags = selectedTags.filter( id => id !== button.id.slice(5));
         } else {

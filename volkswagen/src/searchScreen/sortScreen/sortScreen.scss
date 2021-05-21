@@ -9,16 +9,18 @@
         font-size: 1.75rem;
     }
 
-    div.option {
+    div.option { /* i hate you forever for using div instead of buttons like a real man.*/
         background-color: rgb(212, 212, 212);
         border-radius: 10px;
         margin: 5px;
         margin-bottom: 15px;
         padding: 5px;
         text-align: center;
+        transition: background-color 0.2s linear;
         
-        &.active {
-            background-color: rgb(194, 151, 151);
+        &.selected {
+            background-color: #81DA9B;
+            transition: background-color 0.2s linear;
         }
         
         &:hover {            
@@ -57,12 +59,6 @@
 
         &:active {
             opacity: 0.8;
-        }
-
-        &#upgrade {
-            font-weight: 700;
-            background: #000;
-            color: #FFF;
         }
     }
 
