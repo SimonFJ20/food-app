@@ -9,7 +9,6 @@ const generateId = (length: number) => {
 interface UserOut {
     _id: string,
     name: string,
-    address: string,
     email: string,
     tel: string,
     password: string
@@ -17,7 +16,6 @@ interface UserOut {
 
 interface UserIn {
     name: string,
-    address: string,
     email: string,
     tel: string,
     password: string
