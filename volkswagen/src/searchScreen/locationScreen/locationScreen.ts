@@ -9,16 +9,29 @@ export const locationScreen = () => {
     document.body.innerHTML += toolbar();
     toolbarInit();
 
+    const text = document.getElementById('text') as HTMLElement;
     const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
+    const backButton = document.getElementById('backButton') as HTMLButtonElement;
+    const geoButton = document.getElementById('geolocation') as HTMLElement;
+
+    nextButton.disabled = true;
+
+    if (sessionStorage.getItem('location')) {
+        const savedPosition = JSON.parse(sessionStorage.getItem('location')!)
+        text.innerText = "Vi havde planer for selvvalgte lokationer men det havde vi " +
+        "småproblemer med, så pt fungerer den ekslusivt gennem geolokation." + 
+        "\nLat: " + savedPosition[0] + " \nLong: " + savedPosition[1];
+
+        nextButton.disabled = false;
+    }
+
     nextButton.addEventListener('click', () => {
         const url = new URL(window.location.toString());
         url.searchParams.set('p', 'sort');
         window.history.pushState({}, '', url.toString());
         sortScreen();
     })
-    nextButton.disabled = true;
 
-    const backButton = document.getElementById('backButton') as HTMLButtonElement;
     backButton.addEventListener('click', () => {
         const url = new URL(window.location.toString());
         url.searchParams.set('p', 'tags');
@@ -26,10 +39,14 @@ export const locationScreen = () => {
         tagScreen();
     })
 
-    const text = document.getElementById('text')!
-    navigator.geolocation?.getCurrentPosition( (position) => {
-        text.innerText = "Lat: " + position.coords.latitude + " \nLong: " + position.coords.longitude;
-        sessionStorage.setItem('location', JSON.stringify(position))
-        nextButton.disabled = false;
+    geoButton.addEventListener('click', () => {
+        navigator.geolocation?.getCurrentPosition( (position) => {
+            text.innerText = "Vi havde planer for selvvalgte lokationer men det havde vi " +
+            "småproblemer med, så pt fungerer den ekslusivt gennem geolokation." + 
+            "\nLat: " + position.coords.latitude + " \nLong: " + position.coords.longitude;
+            sessionStorage.setItem('location', JSON.stringify([position.coords.latitude, position.coords.longitude]));
+            nextButton.disabled = false;
+        })
+    
     })
 }
