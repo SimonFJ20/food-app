@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const { getDatabase } = require('../database');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../utils');
+const { ObjectId } = require('mongodb');
 
 module.exports = async (req, res) => {
     try {
@@ -40,6 +41,7 @@ module.exports = async (req, res) => {
         
         const tokenInsert = await Tokens.insertOne({
             token: generateToken(32),
+            user: ObjectId(userFound._id),
             createdAt: Date()
         });
         
