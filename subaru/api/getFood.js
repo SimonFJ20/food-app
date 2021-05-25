@@ -1,11 +1,11 @@
 const { getDatabase } = require('../database');
 const { validationResult } = require('express-validator');
-const geolib = require('geolib');
 
 module.exports = async (req, res) => {
     try {
         const database = getDatabase();
         const Tags = database.collection('tags');
+        const Food = database.collection('food');
         
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
@@ -17,15 +17,15 @@ module.exports = async (req, res) => {
             return;
         }
         
-        const tagsCursor = await Tags.find({title: {$regex: new RegExp(req.params.search, 'gi')}});
+        const foodCursor = await Food.find({tags: req.body.tags});
         
-        const tags = [];
-        await tagsCursor.forEach(tag => tags.push(tag));
+        const foods = [];
+        await foodCursor.forEach(food => foods.push(food));
         
         res.status(200).json({
             success: true,
             response: 'success',
-            tags: tags
+            foods: foods
         });
         
     } catch(error) {
