@@ -23,6 +23,7 @@ const main = async () => {
     app.use(cors(), express.json(), express.urlencoded({extended: true}));
     app.use('/api', await api());
 
+    app.use('/', express.static('./public'));
 
     app.listen(80, async () => {
         console.log('food-app mock on port', 80);

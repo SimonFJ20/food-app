@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html"><b>index</b></a>
+    <a href="makerest.html">makerest</a>
+
+    <div style="margin: 20px;">
+        <input type="text" placeholder="name" id="name"><br>
+        <textarea placeholder="description" id="description"></textarea><br>
+        <input type="number" placeholder="price" id="price"><br>
+        <input type="text" placeholder="rest" id="rest"><br>
+        <textarea placeholder="tags" id="tags"></textarea><br>
+        <input type="text" placeholder="image" id="image"><br>
+        <textarea placeholder="info" id="info"></textarea><br>
+        <button onclick="send()">submit</button>
+    </div>
+
+    <script>
+        const send = () => {
+
+            const data = {
+                secret: 'ELJ9wcrQ68QAYQPP',
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                price: document.getElementById('price').value,
+                rest: document.getElementById('rest').value,
+                tags: document.getElementById('tags').value.split('\n'),
+                image: document.getElementById('image').value,
+                info: document.getElementById('info').value
+            }
+
+            console.log(data)
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json')
+
+            fetch('/api/makefood', {method: 'POST', body: JSON.stringify(data), headers: headers}).then(value => value.json()).then(value => console.log(value))
+
+        }
+    </script>
+</body>
+</html>

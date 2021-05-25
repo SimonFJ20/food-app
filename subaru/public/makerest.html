@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html"><b>index</b></a>
+    <a href="makefood.html">makefood</a>
+
+    <div style="margin: 20px;">
+        <input type="text" placeholder="name" id="name"><br>
+        <textarea placeholder="description" id="description"></textarea><br>
+        <input type="text" placeholder="owner" id="owner"><br>
+        <input type="number" placeholder="lat" id="lat"><br>
+        <input type="number" placeholder="long" id="long"><br>
+        <input type="checkbox" id="deliver">
+        <label for="deliver">deliver</label><br>
+        <textarea placeholder="links" id="links"></textarea><br>
+        <input type="text" placeholder="image" id="image"><br>
+        <button onclick="send()">submit</button>
+    </div>
+
+    <script>
+        const send = () => {
+
+            const data = {
+                secret: 'ELJ9wcrQ68QAYQPP',
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                owner: document.getElementById('owner').value,
+                location: {
+                    latitude: document.getElementById('lat').value,
+                    longitude: document.getElementById('long').value
+                },
+                deliver: document.getElementById('deliver').checked,
+                links: document.getElementById('links').value.split('\n'),
+                image: document.getElementById('image').value
+            }
+
+            console.log(data)
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json')
+
+            fetch('/api/makerest', {method: 'POST', body: JSON.stringify(data), headers: headers}).then(value => value.json()).then(value => console.log(value))
+
+        }
+    </script>
+</body>
+</html>
