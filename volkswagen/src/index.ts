@@ -1,5 +1,6 @@
 import './body.scss';
 import { deliveriesScreen } from './deliveriesScreen/deliveriesScreen';
+import { landingScreen } from './landingScreen/landingScreen';
 import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
 import { locationScreen } from './searchScreen/locationScreen/locationScreen';
@@ -48,10 +49,10 @@ if(params.has('p')) {
             deliveriesScreen();
             break;
         default:
-            sortScreen();
+            landingScreen();
             break;
     }
 } else {
-    sortScreen();
+    landingScreen();
 }
 
