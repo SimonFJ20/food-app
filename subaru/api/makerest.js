@@ -1,12 +1,15 @@
 const { getDatabase } = require('../database')
+const bcrypt = require('bcrypt');
+
+const secret = '$2b$10$rdw7fHhbru0utWmZmwFxMujlmw/7KzAnVZLkMIpUWVArPfQJ4D/5u';
 
 module.exports = async (req, res) => {
 
     const database = getDatabase();
     const Restaurants = database.collection('restaurants');
 
-    if(req.body.secret !== 'ELJ9wcrQ68QAYQPP') {
-        res.status(400).json({success: false});
+    if(!await bcrypt.compare(req.body.secret, secret)) {
+        res.status(400).json({success: false, access: 'denied', got: req.body.secret});
         return;
     };
 
