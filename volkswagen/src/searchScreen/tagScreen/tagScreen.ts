@@ -47,7 +47,7 @@ export const tagScreen = async () => {
 
     //search handling
 
-    tagSearch.addEventListener('keydown', async () => {
+    tagSearch.addEventListener('input', async () => {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
     
