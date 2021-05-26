@@ -18,6 +18,7 @@ document.head.innerHTML += `
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&amp;display=swap"
     >
+    <link rel="shortcut icon" href="https://feedme.simonfj20.site/favicon.ico" type="image/png">
 `;
 
 
