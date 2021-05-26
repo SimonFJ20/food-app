@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     const database = getDatabase();
     const Restaurants = database.collection('restaurants');
 
-    if(await bcrypt.compare(req.body.secret, secret)) {
+    if(!await bcrypt.compare(req.body.secret, secret)) {
         res.status(400).json({success: false});
         return;
     };
