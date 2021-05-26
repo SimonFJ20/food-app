@@ -25,7 +25,7 @@ const main = async () => {
 
     app.use('/', express.static('./public'));
 
-    const port = process.env.HTTP_PORT;
+    const port = process.env.F_PORT;
     app.listen(port, async () => {
         console.log('food-app mock on port', port);
     });
