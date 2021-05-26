@@ -1,5 +1,5 @@
 
-export const hostname = '';
+export const hostname = 'feedme.simonfj20.site';
 
 export const removeEventlistenersOnId = (id: string) => {
     const oldElement = document.getElementById(id);
