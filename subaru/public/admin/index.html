@@ -14,7 +14,7 @@
     <button id="set">set secret</button>
     <script>
         document.getElementById('set').addEventListener('click', () => {
-            const secret = document.getElementById('secret');
+            const secret = document.getElementById('secret').value;
             sessionStorage.setItem('secret', secret);
         });
     </script>
