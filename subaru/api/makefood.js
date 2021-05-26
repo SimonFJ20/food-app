@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     const Foods = database.collection('foods');
 
     if(!await bcrypt.compare(req.body.secret, secret)) {
-        res.status(400).json({success: false});
+        res.status(400).json({success: false, access: 'denied', got: req.body.secret});
         return;
     };
 
