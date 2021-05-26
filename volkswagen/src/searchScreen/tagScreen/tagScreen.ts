@@ -15,21 +15,22 @@ export const tagScreen = async () => {
 
     // tag stuff
 
+    const tagSearch = document.getElementById('tagSearch') as HTMLInputElement;
     tagContainer = document.getElementById('tagContainer') as HTMLDivElement;
     selectedTagsElement = document.getElementById('tagsSelected') as HTMLElement;
 
     selectedTagsElement.innerText = "Tags valgt: " + selectedTags.toString().replace(/\,/g, ', ');
     if (selectedTagsElement.innerText === 'Tags valgt:') selectedTagsElement.innerText += ' Ingen';
 
+    // tag initial get
+
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: ''}), method: 'POST'})).json();
+    const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
 
     const tags = [];
     for(let i in fetched.tags) tags.push(fetched.tags[i].title);
-
-    console.log(fetched)
 
     generateTagButtons(tags)
 
@@ -42,6 +43,23 @@ export const tagScreen = async () => {
         window.history.pushState({}, '', url.toString());
         locationScreen();
     })
+
+    //search handling
+
+    tagSearch.addEventListener('keydown', async () => {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+    
+        const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
+    
+        const tags = [];
+        for(let i in selectedTags) tags.push(selectedTags[i]);
+
+        for(let i in fetched.tags) if (selectedTags.findIndex(fetched.tags[i].title) !== -1) tags.push(fetched.tags[i].title);
+    
+        generateTagButtons(tags)    
+    })
+
 }
 
 const tagClickHandler = (button: HTMLButtonElement) => {
@@ -61,6 +79,7 @@ const tagClickHandler = (button: HTMLButtonElement) => {
 }
 
 const generateTagButtons = (tagsList: string[]) => {
+    tagContainer.innerHTML = '';
     tagsList.forEach( (tag) => {
         let tagElement = document.createElement('button') as HTMLButtonElement;
         tagElement.id = "tag--" + tag;
