@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
             return;
         }
         
-        const tagsCursor = await Tags.find({title: {$regex: new RegExp(req.params.search, 'gi')}});
+        const tagsCursor = await Tags.find({title: {$regex: new RegExp(req.body.search, 'gi')}});
         
         const tags = [];
         await tagsCursor.forEach(tag => tags.push(tag));
