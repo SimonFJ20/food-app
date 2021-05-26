@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="makefood.html"><h2>makefood</h2></a>
+    <a href="makerest.html"><h2>makerest</h2></a>
+    <a href="maketag.html"><h2>maketag</h2></a>
+    <input type="text" placeholder="secret" id="secret"><br>
+    <button id="set">set secret</button>
+    <script>
+        document.getElementById('set').addEventListener('click', () => {
+            const secret = document.getElementById('secret');
+            sessionStorage.setItem('secret', secret);
+        });
+    </script>
+</body>
+</html>

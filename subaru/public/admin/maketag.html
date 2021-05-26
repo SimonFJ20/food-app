@@ -18,7 +18,7 @@
         const send = () => {
 
             const data = {
-                secret: 'ELJ9wcrQ68QAYQPP',
+                secret: sessionStorage.getItem('secret'),
                 title: document.getElementById('title').value,
             }
 
