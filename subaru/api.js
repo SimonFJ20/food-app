@@ -7,6 +7,7 @@ const getTags = require('./api/getTags');
 const makerest = require('./api/makerest');
 const makefood = require('./api/makefood');
 const maketag = require('./api/maketag');
+const getFood = require('./api/getFood');
 
 
 module.exports = api = async () => {
@@ -19,6 +20,7 @@ module.exports = api = async () => {
     router.post('/updateuser', validators.updateUser, updateUser)
 
     router.post('/gettags', validators.getTags, getTags);
+    router.post('/getfood', validators.getFood, getFood)
     
     router.post('/makerest', makerest);
     router.post('/makefood', makefood);
