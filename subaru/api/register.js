@@ -16,6 +16,15 @@ module.exports = async (req, res) => {
             });
             return;
         }
+
+        const userFound = await Users.findOne({phone: req.body.phone});
+        if(userFound) {
+            res.status(400).json({
+                success: false,
+                response: 'occupied'
+            });
+            return;
+        }
         
         const user = {
             name: req.body.name,
