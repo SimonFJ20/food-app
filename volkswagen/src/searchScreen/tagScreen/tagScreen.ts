@@ -8,7 +8,7 @@ let selectedTagsElement: HTMLElement;
 
 let selectedTags: string[] = JSON.parse(sessionStorage.getItem('selectedTags') || '[]');
 
-export const tagScreen = () => {
+export const tagScreen = async () => {
     document.body.innerHTML = html;
     document.body.innerHTML += toolbar();
     toolbarInit();
@@ -21,7 +21,17 @@ export const tagScreen = () => {
     selectedTagsElement.innerText = "Tags valgt: " + selectedTags.toString().replace(/\,/g, ', ');
     if (selectedTagsElement.innerText === 'Tags valgt:') selectedTagsElement.innerText += ' Ingen';
 
-    generateTagButtons(['tag'])
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: ''}), method: 'POST'})).json();
+
+    const tags = [];
+    for(let i in fetched.tags) tags.push(fetched.tags[i].title);
+
+    console.log(fetched)
+
+    generateTagButtons(tags)
 
     // next button
 

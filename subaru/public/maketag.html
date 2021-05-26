@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html"><b>index</b></a>
+
+    <div style="margin: 20px;">
+        <input type="text" placeholder="title" id="title"><br>
+        <button onclick="send()">submit</button>
+    </div>
+
+    <script>
+        const send = () => {
+
+            const data = {
+                secret: 'ELJ9wcrQ68QAYQPP',
+                title: document.getElementById('title').value,
+            }
+
+            console.log(data)
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json')
+
+            fetch('/api/maketag', {method: 'POST', body: JSON.stringify(data), headers: headers}).then(value => value.json()).then(value => console.log(value))
+
+        }
+    </script>
+</body>
+</html>
