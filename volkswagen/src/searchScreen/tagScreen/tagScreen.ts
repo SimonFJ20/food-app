@@ -55,7 +55,7 @@ export const tagScreen = async () => {
         const tags = [];
         for(let i in selectedTags) tags.push(selectedTags[i]);
 
-        for(let i in fetched.tags) if (selectedTags.findIndex(fetched.tags[i].title) !== -1) tags.push(fetched.tags[i].title);
+        for(let i in fetched.tags) if (tags.findIndex(fetched.tags[i].title) !== -1) tags.push(fetched.tags[i].title);
     
         generateTagButtons(tags)    
     })
