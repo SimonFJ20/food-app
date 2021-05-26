@@ -9,7 +9,7 @@ import { tagScreen } from './searchScreen/tagScreen/tagScreen';
 import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
-document.head.innerHTML += /*html*/`
+document.head.innerHTML += `
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"

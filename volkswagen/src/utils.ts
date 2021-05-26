@@ -1,4 +1,6 @@
 
+export const hostname = '';
+
 export const removeEventlistenersOnId = (id: string) => {
     const oldElement = document.getElementById(id);
     if(!oldElement) return;

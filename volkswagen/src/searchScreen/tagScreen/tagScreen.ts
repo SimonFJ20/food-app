@@ -1,4 +1,5 @@
 import { toolbar, toolbarInit } from '../../components/toolbar/toolbar';
+import { hostname } from '../../utils';
 import { locationScreen } from '../locationScreen/locationScreen';
 import html from './tagScreen.html';
 import './tagScreen.scss';
@@ -27,7 +28,7 @@ export const tagScreen = async () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
+    const fetched = await (await fetch(hostname + '/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
 
     const tags = [];
     for(let i in fetched.tags) tags.push(fetched.tags[i].title);
@@ -50,7 +51,7 @@ export const tagScreen = async () => {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
     
-        const fetched = await (await fetch('http://localhost/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
+        const fetched = await (await fetch(hostname + '/api/gettags', {headers: headers, body: JSON.stringify({search: tagSearch.value}), method: 'POST'})).json();
     
         const tags = [];
         for(let i in selectedTags) tags.push(selectedTags[i]);
