@@ -15,17 +15,20 @@ document.head.innerHTML += `
     >
     <link rel="shortcut icon" href="https://feedme.simonfj20.site/favicon.png" type="image/png">
 `;
-
-sessionStorage.removeItem('page')
-if (localStorage.getItem('token')) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    const fetched = await (await fetch(hostname + '/api/checktoken', { headers: headers, body: JSON.stringify({ token: localStorage.getItem('token') }), method: 'POST' })).json();
-    if (fetched.success && fetched.response === 'success') {
-        landingScreen();
+const index = async () => {
+    sessionStorage.removeItem('page')
+    if (localStorage.getItem('token')) {
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        const fetched = await (await fetch(hostname + '/api/checktoken', { headers: headers, body: JSON.stringify({ token: localStorage.getItem('token') }), method: 'POST' })).json();
+        if (fetched.success && fetched.response === 'success') {
+            landingScreen();
+        } else {
+            loginScreen();
+        }
     } else {
         loginScreen();
     }
-} else {
-    loginScreen();
 }
+
+index();
