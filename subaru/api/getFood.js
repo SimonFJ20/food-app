@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             return;
         }
         
-        const foodCursor = await Food.find({tags: req.body.tags});
+        const foodCursor = Food.find({tags: req.body.tags});
         
         const foods = [];
         await foodCursor.forEach(food => foods.push(food));
@@ -25,7 +25,8 @@ module.exports = async (req, res) => {
         res.status(200).json({
             success: true,
             response: 'success',
-            foods: foods
+            foods: foods,
+            tags: req.body.tags
         });
         
     } catch(error) {
