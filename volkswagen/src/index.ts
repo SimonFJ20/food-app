@@ -50,6 +50,10 @@ if(params.has('p') && false) {
             break;
     }
 } else {
-    landingScreen();
+    if (localStorage.getItem('token')) { //& check token validity when api is available
+        landingScreen();
+    } else {
+        loginScreen();
+    }
 }
 
