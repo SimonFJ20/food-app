@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
         const token = req.body.token;
         const existingToken = await Tokens.findOne({token: token});
         if(!existingToken) {
-            res.status(400).json({
+            res.status(200).json({
                 success: false,
                 response: 'unknown'
             });
