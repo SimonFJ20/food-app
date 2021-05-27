@@ -17,9 +17,11 @@ const addCards = () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const tags = JSON.parse(sessionStorage.getItem('tags') || '["good food"]')
+    const tags = JSON.parse(sessionStorage.getItem('tags') || '[]')
     const locationArray = JSON.parse(sessionStorage.getItem('location') || '[0,0]');
     const location = {latitude: locationArray[0], longitude: locationArray[1]}
+
+    console.log(tags)
 
     fetch(hostname + '/api/getfood', {headers: headers, body: JSON.stringify({tags: tags, location: location}), method: 'POST'})
         .then( response => response.json() )
