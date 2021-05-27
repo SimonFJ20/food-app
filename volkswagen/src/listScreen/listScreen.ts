@@ -3,7 +3,6 @@ import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
 import { generateId, hostname } from '../utils';
 import html from './listScreen.html';
 import './listScreen.scss';
-import vodkaImage from './vodka.jpg';
 
 const addCardViewerRemover = () => {
     document.getElementById('CardViewer')!.addEventListener('click', (e) => {
@@ -16,7 +15,7 @@ const addCardViewerRemover = () => {
 const getTags = (tags: any) => {
     let out = '';
     for(let i in tags) {
-        out += /*html*/`<p class="red">${tags[i]}</p>`
+        out += /*html*/`<p>${tags[i]}</p>`
     }
     return out
 }
