@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             return;
         }
         
-        const foodCursor = await Food.find({tags: req.body.tags});
+        const foodCursor = await Food.find({tags: {$in: req.body.tags}});
         
         const foods = [];
         await foodCursor.forEach(food => foods.push(food));
