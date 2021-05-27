@@ -16,7 +16,7 @@ export const tagScreen = async () => {
 
     // tag stuff
 
-    const tagSearch = document.getElementById('tagSearch') as HTMLInputElement;
+    const tagSearch = document.getElementById('search') as HTMLInputElement;
     tagContainer = document.getElementById('tagContainer') as HTMLDivElement;
     selectedTagsElement = document.getElementById('tagsSelected') as HTMLElement;
 

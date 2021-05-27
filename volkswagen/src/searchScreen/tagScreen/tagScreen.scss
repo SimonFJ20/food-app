@@ -14,8 +14,22 @@
         margin-bottom: 0.5em;
     }
 
-    #tagSearch {
+    input#search {
+        background: #FFF;
+        border: none;
+        border-bottom: 1px solid #CCC;
         padding: 0.5em;
+        width: 100%;
+        margin-bottom: 1rem;
+        transition: all 0.1s linear;
+
+        &:focus {
+            background: #F5F5F5;
+            outline: none;
+            border-bottom: 2px solid #CCC;
+            transition: all 0.1s linear;
+        }
+
     }
 
     #tagContainer {
