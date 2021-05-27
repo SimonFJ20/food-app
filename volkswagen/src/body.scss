@@ -5,3 +5,13 @@
     font-family: 'Source Sans Pro';
     font-size: 1rem;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+body > div:first-child {
+    flex: 1;
+}
