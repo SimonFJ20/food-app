@@ -69,8 +69,6 @@ const addCards = async () => {
     if (tags.length !== 0)
         fetched.foods = sortRelevance(fetched.foods, tags);
 
-    console.log(fetched.foods)
-
     fetched.foods.forEach((food: any) => {
         const id = generateId(16);
         ids.push(id);
