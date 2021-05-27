@@ -9,7 +9,7 @@ const setSubmitHandler = () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const errorElement = document.getElementById('error') as HTMLElement;
+    const responseElement = document.getElementById('response') as HTMLElement;
 
     removeEventlistenersOnId('submit');
     document.getElementById('submit')?.addEventListener('click', async () => {
@@ -27,13 +27,17 @@ const setSubmitHandler = () => {
             password: password
         }), method: 'POST' })).json();
 
-        if (fetched.success) {
-            localStorage.setItem('token', fetched.token)
-            tagScreen();
-        } else if (fetched.response === 'unknown') {
-            errorElement.innerText = 'Der opstod en fejl: \nUkendt bruger eller forkert password.';
-        } else {
-            errorElement.innerText = 'Der opstod en fejl.';
+        switch (fetched.response) {
+            case 'success':
+                localStorage.setItem('token', fetched.token)
+                tagScreen();
+                break;
+            case 'unknown':
+                responseElement.innerText = 'Der opstod en fejl: \nUkendt bruger eller forkert password.';
+                break;
+            default:
+                responseElement.innerText = 'Der opstod en fejl.';
+                break;
         }
     })
 }

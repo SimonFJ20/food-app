@@ -8,7 +8,7 @@ const setSubmitHandler = () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const errorElement = document.getElementById('error') as HTMLElement;
+    const responseElement = document.getElementById('response') as HTMLElement;
 
     removeEventlistenersOnId('submit');
     document.getElementById('submit')?.addEventListener('click', async () => {
@@ -33,18 +33,23 @@ const setSubmitHandler = () => {
             password: password
         }), method: 'POST' })).json();
 
-        if (fetched.success) {
-            loginScreen();
-        } else if (fetched.response === 'invalid') {
-            errorElement.innerText = 'Der opstod en fejl:\n';
-            for (let i in fetched.errors) {
-                const error = fetched.errors[i]
-                errorElement.innerText += error.param + ': ' + error.msg + "\n";
-            }
-        } else if (fetched.response === 'occupied') {
-            errorElement.innerText = 'Der opstod en fejl:\n Telefon nr. er allerede optaget.';
-        } else {
-            errorElement.innerText = 'Der opstod en fejl.';
+        switch (fetched.response) {
+            case 'success':
+                loginScreen();
+                break;
+            case 'invalid':
+                responseElement.innerText = 'Der opstod en fejl:\n';
+                for (let i in fetched.errors) {
+                    const error = fetched.errors[i]
+                    responseElement.innerText += error.param + ': ' + error.msg + "\n";
+                }
+                break;
+            case 'occupied':
+                responseElement.innerText = 'Der opstod en fejl:\n Telefon nr. er allerede optaget.';
+                break;
+            default:
+                responseElement.innerText = 'Der opstod en fejl.';
+                break;
         }
     })
 }
