@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     try {
         const database = getDatabase();
         const Tags = database.collection('tags');
-        const Food = database.collection('food');
+        const Food = database.collection('foods');
         
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             return;
         }
         
-        const foodCursor = Food.find(/*{tags: {$in: req.body.tags}}*/);
+        const foodCursor = Food.find({tags: {$in: req.body.tags}});
         
         const foods = [];
         await foodCursor.forEach(food => foods.push(food));
