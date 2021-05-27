@@ -12,6 +12,6 @@ body {
     height: 100vh;
 }
 
-body:first-child {
+body > div:first-child {
     flex: 1;
 }
