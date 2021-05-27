@@ -26,16 +26,10 @@ export const locationScreen = () => {
     }
 
     nextButton.addEventListener('click', () => {
-        const url = new URL(window.location.toString());
-        url.searchParams.set('p', 'sort');
-        window.history.pushState({}, '', url.toString());
         sortScreen();
     })
 
     backButton.addEventListener('click', () => {
-        const url = new URL(window.location.toString());
-        url.searchParams.set('p', 'tags');
-        window.history.pushState({}, '', url.toString());
         tagScreen();
     })
 

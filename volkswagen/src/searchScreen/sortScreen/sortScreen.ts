@@ -21,17 +21,11 @@ const setButtonEventHandlers = () => {
 
     const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
     nextButton.addEventListener('click', () => {
-        const url = new URL(window.location.toString());
-        url.searchParams.set('p', 'list');
-        window.history.pushState({}, '', url.toString());
         listScreen();
     })
 
     const backButton = document.getElementById('backButton') as HTMLButtonElement;
     backButton.addEventListener('click', () => {
-        const url = new URL(window.location.toString());
-        url.searchParams.set('p', 'location');
-        window.history.pushState({}, '', url.toString());
         locationScreen();
     })
 

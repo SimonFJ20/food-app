@@ -15,24 +15,12 @@ import { tagScreen } from '../../searchScreen/tagScreen/tagScreen';
 export const toolbar = () => {
     let returnHtml = html;
 
-    const params = new URLSearchParams(window.location.search);
-
-    if(params.has('p')) {
-        const page = params.get('p');
-        
-        switch(page) {
-            case 'settings':
-                returnHtml = returnHtml.replace(/{{settingsImage}}/g, '{{settingsSelectImage}}')
-                break;
-            case 'list':
-                returnHtml = returnHtml.replace(/{{listImage}}/g, '{{listSelectImage}}')
-                break;    
-            default:
-                returnHtml = returnHtml.replace(/{{searchImage}}/g, '{{searchSelectImage}}')
-                break;
-        }
+    if (sessionStorage.getItem('page') === 'settings') {
+        returnHtml = returnHtml.replace('{{settingsImage}}', '{{settingsSelectImage}}')
+    } else if (sessionStorage.getItem('page') === 'list') {
+        returnHtml = returnHtml.replace('{{listImage}}', '{{listSelectImage}}')
     } else {
-        returnHtml = returnHtml.replace(/{{searchImage}}/g, '{{searchSelectImage}}')
+        returnHtml = returnHtml.replace('{{searchImage}}', '{{searchSelectImage}}')
     }
 
     returnHtml = returnHtml.replace(/{{settingsImage}}/g, settingsImage)
@@ -46,30 +34,23 @@ export const toolbar = () => {
 }
 
 export const toolbarInit = () => {
-    const url = new URL(window.location.toString());
-
     removeEventlistenersOnId('settingsToolbar')
     removeEventlistenersOnId('searchToolbar')
     removeEventlistenersOnId('listToolbar')
 
     document.getElementById('settingsToolbar')?.addEventListener('click', () => {
-        url.searchParams.set('p', 'settings');
-        window.history.pushState({}, '', url.toString());
+        sessionStorage.setItem('page', 'settings')
         settingsScreen();
     })
     document.getElementById('searchToolbar')?.addEventListener('click', () => {
-        url.searchParams.set('p', 'tags');
-        window.history.pushState({}, '', url.toString());
+        sessionStorage.setItem('page', 'search')
         tagScreen();
     })
     document.getElementById('listToolbar')?.addEventListener('click', () => {
         if (sessionStorage.getItem('tags') && sessionStorage.getItem('location') && sessionStorage.getItem('sort')) {
-            url.searchParams.set('p', 'list');
-            window.history.pushState({}, '', url.toString());
+            sessionStorage.setItem('page', 'list')
             listScreen();
         } else {
-            url.searchParams.set('p', 'tags');
-            window.history.pushState({}, '', url.toString());
             tagScreen();
         }
     })

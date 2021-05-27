@@ -39,9 +39,6 @@ export const tagScreen = async () => {
 
     const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
     nextButton.addEventListener('click', () => {
-        const url = new URL(window.location.toString());
-        url.searchParams.set('p', 'location');
-        window.history.pushState({}, '', url.toString());
         locationScreen();
     })
 
