@@ -39,10 +39,11 @@ module.exports = async (req, res) => {
 
         if(userToUpdate.phone) {
             const userFound = await Users.findOne({phone: req.body.phone});
-            if(userFound && userFound !== existingToken.user) {
+            if(userFound && userFound._id.toString() !== existingToken.user.toString()) {
                 res.status(400).json({
                     success: false,
-                    response: 'occupied'
+                    response: 'occupied',
+                    other: {a: userFound, b: userFound._id, c: existingToken.user}
                 });
                 return;
             }
