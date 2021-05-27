@@ -17,7 +17,7 @@ const addCards = () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const tags = JSON.parse(sessionStorage.getItem('tags') || 'bruh')
+    const tags = JSON.parse(sessionStorage.getItem('tags') || '["good food"]')
     const locationArray = JSON.parse(sessionStorage.getItem('location') || '[0,0]');
     const location = {latitude: locationArray[0], longitude: locationArray[1]}
 
