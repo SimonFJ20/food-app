@@ -45,3 +45,7 @@ exports.getRestaurant = [
     check('name').isString(),
 ];
 
+exports.getUser = [
+    check('token').isString(),
+];
+
