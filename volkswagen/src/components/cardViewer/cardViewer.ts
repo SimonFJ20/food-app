@@ -12,6 +12,7 @@ export const cardViewer = (title: string, description: string, imageSrc: string,
         let out = '';
         links.forEach(link => out += `<a href="${link}" target="blank">${link}</a><br>`)
         return out
+
     });
     return rhtml;
 }

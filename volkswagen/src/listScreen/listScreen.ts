@@ -54,8 +54,12 @@ const addCards = async () => {
     document.getElementById('cards')!.innerHTML = newInnerHtml;
 
     for(let i = 0; i < ids.length; i++) {
-        document.getElementById(ids[i])!.addEventListener('click', () => {
-            document.body.innerHTML += cardViewer(fetched.foods[i].name, fetched.foods[i].description, fetched.foods[i].image, fetched.foods[i].name, fetched.foods[i].price, fetched.foods[i].links);
+        document.getElementById(ids[i])!.addEventListener('click', async () => {
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const restaurant = await (await fetch(hostname + '/api/getrestaurant', { headers: headers, body: JSON.stringify({ name: fetched.foods[i].restaurant }), method: 'POST' })).json()
+            document.body.innerHTML += cardViewer(fetched.foods[i].name, fetched.foods[i].description, fetched.foods[i].image, fetched.foods[i].name, fetched.foods[i].price, restaurant.restaurant.external_links);
             addCardViewerRemover();
         })
     }
