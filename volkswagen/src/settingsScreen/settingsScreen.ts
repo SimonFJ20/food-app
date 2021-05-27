@@ -18,14 +18,13 @@ export const settingsScreen = () => {
     headers.append('Content-Type', 'application/json');
 
     fetch(hostname + '/api/getuser', { headers: headers, body: JSON.stringify({ 
-        //token: string
+        token: localStorage.getItem('token')
     }), method: 'POST' })
     .then( response => response.json() )
     .then( data => {
         userNameElement.value = data.user.name,
         userEmailElement.value = data.user.email,
         userPhoneElement.value = data.user.phone
-        //probably
     });
 
 
@@ -33,12 +32,11 @@ export const settingsScreen = () => {
     updateInfoButton.addEventListener('click', () => {
     
         fetch(hostname + '/api/updateuser', { headers: headers, body: JSON.stringify({ 
-            //token: string,
+            token: localStorage.getItem('token'),
             name: userNameElement.value,
             email: userEmailElement.value,
             phone: userPhoneElement.value        
         }), method: 'POST' });
-        //handling response? whats that?
     })
 
     // delete account ?
