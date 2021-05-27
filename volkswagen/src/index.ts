@@ -1,6 +1,7 @@
 import './body.scss';
 import { landingScreen } from './landingScreen/landingScreen';
 import { loginScreen } from './loginScreen/loginScreen';
+import { hostname } from './utils';
 
 document.title = 'FeedMe App Draft';
 document.head.innerHTML += `
@@ -16,8 +17,15 @@ document.head.innerHTML += `
 `;
 
 sessionStorage.removeItem('page')
-if (localStorage.getItem('token')) { //& check token validity when api is available
-    landingScreen();
+if (localStorage.getItem('token')) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const fetched = await (await fetch(hostname + '/api/checktoken', { headers: headers, body: JSON.stringify({ token: localStorage.getItem('token') }), method: 'POST' })).json();
+    if (fetched.success && fetched.response === 'success') {
+        landingScreen();
+    } else {
+        loginScreen();
+    }
 } else {
     loginScreen();
 }
