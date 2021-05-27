@@ -1,4 +1,3 @@
-import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
 import { loginScreen } from '../loginScreen/loginScreen';
 import { hostname, removeEventlistenersOnId } from '../utils';
 import html from './registerScreen.html';
@@ -62,8 +61,6 @@ const setLoginHandler = () => {
 
 export const registerScreen = () => {
     document.body.innerHTML = html;
-    document.body.innerHTML += toolbar();
-    toolbarInit();
 
     setLoginHandler();
     setSubmitHandler();

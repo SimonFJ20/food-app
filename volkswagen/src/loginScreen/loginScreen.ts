@@ -1,4 +1,3 @@
-import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
 import { registerScreen } from '../registerScreen/registerScreen';
 import { tagScreen } from '../searchScreen/tagScreen/tagScreen';
 import { hostname, removeEventlistenersOnId } from '../utils';
@@ -51,10 +50,7 @@ const setRegisterHandler = () => {
 
 export const loginScreen = () => {
     document.body.innerHTML = html;
-
-    document.body.innerHTML += toolbar();
-    toolbarInit();
-
+    
     setRegisterHandler();
     setSubmitHandler();
 }
