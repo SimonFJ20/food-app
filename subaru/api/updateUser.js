@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
 
         if(userToUpdate.phone) {
             const userFound = await Users.findOne({phone: req.body.phone});
-            if(userFound && userFound !== existingToken.user) {
+            if(userFound && userFound._id !== existingToken.user) {
                 res.status(400).json({
                     success: false,
                     response: 'occupied'
