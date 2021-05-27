@@ -1,6 +1,6 @@
 import { cardViewer } from '../components/cardViewer/cardViewer';
 import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
-import { hostname } from '../utils';
+import { generateId, hostname } from '../utils';
 import html from './listScreen.html';
 import './listScreen.scss';
 import vodkaImage from './vodka.jpg';
@@ -33,9 +33,13 @@ const addCards = async () => {
     
     let newInnerHtml = '';
 
+    const ids: string[] = [];
+
     fetched.foods.forEach((food: any) => {
+        const id = generateId(16);
+        ids.push(id);
         newInnerHtml += /*html*/`
-            <div class="card">
+            <div class="card" id="${id}">
                 <img src="${food.image}" alt="${food.name}">
                 <div class="content">
                     <h3>${food.name}</h3>
@@ -45,15 +49,18 @@ const addCards = async () => {
                     </div>
                 </div>
             </div>
-            `
+        `
     });
 
     document.getElementById('cards')!.innerHTML = newInnerHtml;
 
-    document.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => {
-        document.body.innerHTML += cardViewer('hej', 'med dig', vodkaImage, 'vodka');
-        addCardViewerRemover();
-    }));
+    for(let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i])!.addEventListener('click', () => {
+            document.body.innerHTML += cardViewer(fetched.foods[i].name, fetched.foods[i].description, fetched.foods[i].image, fetched.foods[i].name);
+            addCardViewerRemover();
+        })
+    }
+
 }
 
 export const listScreen = () => {
