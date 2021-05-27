@@ -7,7 +7,7 @@ import './tagScreen.scss';
 let tagContainer: HTMLDivElement;
 let selectedTagsElement: HTMLElement;
 
-let selectedTags: string[] = JSON.parse(sessionStorage.getItem('selectedTags') || '[]');
+let selectedTags: string[] = JSON.parse(sessionStorage.getItem('tags') || '[]');
 
 export const tagScreen = async () => {
     document.body.innerHTML = html;
@@ -75,7 +75,7 @@ const tagClickHandler = (button: HTMLButtonElement) => {
         selectedTagsElement.innerText = "Tags valgt: " + selectedTags.toString().replace(/\,/g, ', ');
         if (selectedTagsElement.innerText === 'Tags valgt:') selectedTagsElement.innerText += ' Ingen';
 
-        sessionStorage.setItem('selectedTags', JSON.stringify(selectedTags));
+        sessionStorage.setItem('tags', JSON.stringify(selectedTags));
     })
 }
 

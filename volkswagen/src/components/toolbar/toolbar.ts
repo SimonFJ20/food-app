@@ -5,12 +5,11 @@ import settingsImage from './settings.png'
 import settingsSelectImage from './settings-select.png'
 import searchImage from './search.png'
 import searchSelectImage from './search-select.png'
-import deliveriesImage from './deliveries.png'
-import deliveriesSelectImage from './deliveries-select.png'
+import listImage from './list.png'
+import listSelectImage from './list-select.png'
 import { removeEventlistenersOnId } from '../../utils';
 import { listScreen } from '../../listScreen/listScreen';
 import { settingsScreen } from '../../settingsScreen/settingsScreen';
-import { deliveriesScreen } from '../../deliveriesScreen/deliveriesScreen';
 import { tagScreen } from '../../searchScreen/tagScreen/tagScreen';
 
 export const toolbar = () => {
@@ -22,14 +21,11 @@ export const toolbar = () => {
         const page = params.get('p');
         
         switch(page) {
-            case 'list':
-                returnHtml = returnHtml.replace(/{{searchImage}}/g, '{{searchSelectImage}}')
-                break;
             case 'settings':
                 returnHtml = returnHtml.replace(/{{settingsImage}}/g, '{{settingsSelectImage}}')
                 break;
-            case 'deliveries':
-                returnHtml = returnHtml.replace(/{{deliveriesImage}}/g, '{{deliveriesSelectImage}}')
+            case 'list':
+                returnHtml = returnHtml.replace(/{{listImage}}/g, '{{listSelectImage}}')
                 break;    
             default:
                 returnHtml = returnHtml.replace(/{{searchImage}}/g, '{{searchSelectImage}}')
@@ -43,8 +39,8 @@ export const toolbar = () => {
     .replace(/{{settingsSelectImage}}/g, settingsSelectImage)
     .replace(/{{searchImage}}/g, searchImage)
     .replace(/{{searchSelectImage}}/g, searchSelectImage)
-    .replace(/{{deliveriesImage}}/g, deliveriesImage)
-    .replace(/{{deliveriesSelectImage}}/g, deliveriesSelectImage);
+    .replace(/{{listImage}}/g, listImage)
+    .replace(/{{listSelectImage}}/g, listSelectImage);
 
     return returnHtml;
 }
@@ -54,7 +50,7 @@ export const toolbarInit = () => {
 
     removeEventlistenersOnId('settingsToolbar')
     removeEventlistenersOnId('searchToolbar')
-    removeEventlistenersOnId('deliveriesToolbar')
+    removeEventlistenersOnId('listToolbar')
 
     document.getElementById('settingsToolbar')?.addEventListener('click', () => {
         url.searchParams.set('p', 'settings');
@@ -66,9 +62,15 @@ export const toolbarInit = () => {
         window.history.pushState({}, '', url.toString());
         tagScreen();
     })
-    document.getElementById('deliveriesToolbar')?.addEventListener('click', () => {
-        url.searchParams.set('p', 'deliveries');
-        window.history.pushState({}, '', url.toString());
-        deliveriesScreen();
+    document.getElementById('listToolbar')?.addEventListener('click', () => {
+        if (sessionStorage.getItem('tags') && sessionStorage.getItem('location') && sessionStorage.getItem('sort')) {
+            url.searchParams.set('p', 'list');
+            window.history.pushState({}, '', url.toString());
+            listScreen();
+        } else {
+            url.searchParams.set('p', 'tags');
+            window.history.pushState({}, '', url.toString());
+            tagScreen();
+        }
     })
 }
