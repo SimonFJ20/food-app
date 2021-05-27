@@ -42,7 +42,8 @@ module.exports = async (req, res) => {
             if(userFound && userFound._id !== existingToken.user) {
                 res.status(400).json({
                     success: false,
-                    response: 'occupied'
+                    response: 'occupied',
+                    other: {a: userFound, b: userFound._id, c: existingToken.user}
                 });
                 return;
             }
