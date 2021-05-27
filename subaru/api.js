@@ -10,6 +10,7 @@ const maketag = require('./api/maketag');
 const getFood = require('./api/getFood');
 const getRestaurent = require('./api/getRestaurent');
 const getuser = require('./api/getuser');
+const checkToken = require('./api/checkToken');
 
 
 module.exports = api = async () => {
@@ -20,7 +21,8 @@ module.exports = api = async () => {
     router.post('/register', validators.register, register);
     router.post('/login', validators.login, login);
     router.post('/updateuser', validators.updateUser, updateUser)
-    router.post('/getuser', validators.getUser, getuser)
+    router.post('/getuser', validators.getUser, getuser);
+    router.post('/checktoken', validators.checkToken, checkToken);
 
 
     router.post('/gettags', validators.getTags, getTags);

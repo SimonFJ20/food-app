@@ -49,3 +49,6 @@ exports.getUser = [
     check('token').isString(),
 ];
 
+exports.checkToken = [
+    check('token').isString(),
+];
