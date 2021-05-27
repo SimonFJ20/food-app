@@ -11,3 +11,7 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+
+body:first-child {
+    flex: 1;
+}
