@@ -55,7 +55,7 @@ const addCards = async () => {
 
     for(let i = 0; i < ids.length; i++) {
         document.getElementById(ids[i])!.addEventListener('click', () => {
-            document.body.innerHTML += cardViewer(fetched.foods[i].name, fetched.foods[i].description, fetched.foods[i].image, fetched.foods[i].name, fetched.foods[i].price);
+            document.body.innerHTML += cardViewer(fetched.foods[i].name, fetched.foods[i].description, fetched.foods[i].image, fetched.foods[i].name, fetched.foods[i].price, fetched.foods[i].links);
             addCardViewerRemover();
         })
     }
