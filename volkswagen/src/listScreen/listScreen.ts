@@ -20,6 +20,38 @@ const getTags = (tags: any) => {
     return out
 }
 
+const sortRelevance = (foodList: any, selectedTags: string[]): any => {
+    let newFoodList = foodList;
+    let previousScore = -500;
+    let didReplace = false;
+
+    newFoodList.forEach((food: any, index: number) => {
+        if (index > 0) {
+            let currentScore = 0;
+            food.tags.forEach((tag: string) => {
+                if (selectedTags.findIndex( (currentTag: string) => currentTag == tag) !== -1) {
+                    currentScore += 2;
+                }
+            });
+            currentScore -= food.tags.length;
+    
+            if (currentScore < previousScore) {
+                const previous = newFoodList[index-1];
+                const current = newFoodList[index];
+                newFoodList[index-1] = current;
+                newFoodList[index] = previous;
+                didReplace = true;
+            }
+            previousScore = currentScore;    
+        }
+    });
+
+    if (didReplace)
+        return sortRelevance(newFoodList, selectedTags);
+    else 
+        return newFoodList;
+}
+
 const addCards = async () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -33,6 +65,11 @@ const addCards = async () => {
     let newInnerHtml = '';
 
     const ids: string[] = [];
+
+    if (tags.length !== 0)
+        fetched.foods = sortRelevance(fetched.foods, tags);
+
+    console.log(fetched.foods)
 
     fetched.foods.forEach((food: any) => {
         const id = generateId(16);
