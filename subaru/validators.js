@@ -41,3 +41,7 @@ exports.getFood = [
     check('location').isObject()
 ];
 
+exports.getRestaurant = [
+    check('name').isString(),
+];
+
