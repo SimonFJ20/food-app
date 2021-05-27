@@ -1,28 +1,40 @@
 import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
-import { User } from '../database';
 import { registerScreen } from '../registerScreen/registerScreen';
-import { removeEventlistenersOnId } from '../utils';
+import { tagScreen } from '../searchScreen/tagScreen/tagScreen';
+import { hostname, removeEventlistenersOnId } from '../utils';
 import html from './loginScreen.html';
 import './loginScreen.scss';
 
 const setSubmitHandler = () => {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const errorElement = document.getElementById('error') as HTMLElement;
+
     removeEventlistenersOnId('submit');
-    document.getElementById('submit')?.addEventListener('click', () => {
+    document.getElementById('submit')?.addEventListener('click', async () => {
         
         const identifierInput = <HTMLInputElement>document.getElementById('identifier');
         const passwordInput = <HTMLInputElement>document.getElementById('password');
 
-        
         const identifier = identifierInput.value;
         const password = passwordInput.value;
 
         if(!(identifier && password)) return;
 
-        const user = User.find(user => user.email === identifier || user.tel === identifier);
+        const fetched = await (await fetch(hostname + '/api/login', { headers: headers, body: JSON.stringify({     
+            phone: identifier,
+            password: password
+        }), method: 'POST' })).json();
 
-        if(!user) return;
-
-        if(user) alert('sdfds');
+        if (fetched.success) {
+            localStorage.setItem('token', fetched.token)
+            tagScreen();
+        } else if (fetched.response === 'unknown') {
+            errorElement.innerText = 'Der opstod en fejl: \nUkendt bruger eller forkert password.';
+        } else {
+            errorElement.innerText = 'Der opstod en fejl.';
+        }
     })
 }
 

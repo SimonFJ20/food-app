@@ -61,4 +61,12 @@
         color: #000;
     }
 
+    #error {
+        color: #D00;
+        font-weight: 600;
+        &::first-line {
+            font-size: 1.2rem;
+        }
+    }
+
 }

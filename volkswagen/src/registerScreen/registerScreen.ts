@@ -1,11 +1,17 @@
 import { toolbar, toolbarInit } from '../components/toolbar/toolbar';
-import { User } from '../database';
 import { loginScreen } from '../loginScreen/loginScreen';
+import { hostname, removeEventlistenersOnId } from '../utils';
 import html from './registerScreen.html';
 import './registerScreen.scss';
 
 const setSubmitHandler = () => {
-    document.getElementById('submit')?.addEventListener('click', () => {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const errorElement = document.getElementById('error') as HTMLElement;
+
+    removeEventlistenersOnId('submit');
+    document.getElementById('submit')?.addEventListener('click', async () => {
         
         const nameInput = <HTMLInputElement>document.getElementById('name');
         const emailInput = <HTMLInputElement>document.getElementById('email');
@@ -20,14 +26,26 @@ const setSubmitHandler = () => {
 
         if(!(name && email && tel && password)) return;
 
-        const id = User.insert({
+        const fetched = await (await fetch(hostname + '/api/register', { headers: headers, body: JSON.stringify({     
             name: name,
             email: email,
-            tel: tel,
+            phone: tel,
             password: password
-        });
+        }), method: 'POST' })).json();
 
-        loginScreen();
+        if (fetched.success) {
+            loginScreen();
+        } else if (fetched.response === 'invalid') {
+            errorElement.innerText = 'Der opstod en fejl:\n';
+            for (let i in fetched.errors) {
+                const error = fetched.errors[i]
+                errorElement.innerText += error.param + ': ' + error.msg + "\n";
+            }
+        } else if (fetched.response === 'occupied') {
+            errorElement.innerText = 'Der opstod en fejl:\n Telefon nr. er allerede optaget.';
+        } else {
+            errorElement.innerText = 'Der opstod en fejl.';
+        }
     })
 }
 
