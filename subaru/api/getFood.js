@@ -16,8 +16,10 @@ module.exports = async (req, res) => {
             });
             return;
         }
+
+        const search = (req.body.tags.length > 0) ? {tags: {$in: req.body.tags}} : null;
         
-        const foodCursor = Food.find({tags: {$in: req.body.tags}});
+        const foodCursor = Food.find(search);
         
         const foods = [];
         await foodCursor.forEach(food => foods.push(food));
@@ -25,8 +27,7 @@ module.exports = async (req, res) => {
         res.status(200).json({
             success: true,
             response: 'success',
-            foods: foods,
-            tags: req.body.tags
+            foods: foods
         });
         
     } catch(error) {
