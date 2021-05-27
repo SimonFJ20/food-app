@@ -1,11 +1,6 @@
 import './body.scss';
 import { landingScreen } from './landingScreen/landingScreen';
-import { listScreen } from './listScreen/listScreen';
 import { loginScreen } from './loginScreen/loginScreen';
-import { locationScreen } from './searchScreen/locationScreen/locationScreen';
-import { sortScreen } from './searchScreen/sortScreen/sortScreen';
-import { tagScreen } from './searchScreen/tagScreen/tagScreen';
-import { settingsScreen } from './settingsScreen/settingsScreen';
 
 document.title = 'FeedMe App Draft';
 document.head.innerHTML += `
@@ -20,40 +15,9 @@ document.head.innerHTML += `
     <link rel="shortcut icon" href="https://feedme.simonfj20.site/favicon.png" type="image/png">
 `;
 
-
-const params = new URLSearchParams(window.location.search);
-
-if(params.has('p') && false) {
-    const page = params.get('p');
-    
-    switch(page) {
-        case 'sort':
-            sortScreen();
-            break;
-        case 'location':
-            locationScreen();
-            break;
-        case 'tags':
-            tagScreen();
-            break;
-        case 'list':
-            listScreen();
-            break;
-        case 'login':
-            loginScreen();
-            break;
-        case 'settings':
-            settingsScreen();
-            break;
-        default:
-            landingScreen();
-            break;
-    }
+sessionStorage.removeItem('page')
+if (localStorage.getItem('token')) { //& check token validity when api is available
+    landingScreen();
 } else {
-    if (localStorage.getItem('token')) { //& check token validity when api is available
-        landingScreen();
-    } else {
-        loginScreen();
-    }
+    loginScreen();
 }
-
