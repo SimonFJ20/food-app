@@ -13,7 +13,15 @@ const addCardViewerRemover = () => {
     });
 }
 
-const addCards = () => {
+const getTags = (tags: any) => {
+    let out = '';
+    for(let i in tags) {
+        out += /*html*/`<p class="red">${tags[i]}</p>`
+    }
+    return out
+}
+
+const addCards = async () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -21,10 +29,26 @@ const addCards = () => {
     const locationArray = JSON.parse(sessionStorage.getItem('location') || '[0,0]');
     const location = {latitude: locationArray[0], longitude: locationArray[1]}
 
-    fetch(hostname + '/api/getfood', {headers: headers, body: JSON.stringify({tags: tags, location: location}), method: 'POST'})
-        .then( response => response.json() )
-        .then( data => console.log(data) )
+    const fetched = await (await fetch(hostname + '/api/getfood', { headers: headers, body: JSON.stringify({ tags: tags, location: location }), method: 'POST' })).json();
+    
+    let newInnerHtml = '';
 
+    fetched.foods.forEach((food: any) => {
+        newInnerHtml += /*html*/`
+            <div class="card">
+                <img src="${food.image}" alt="${food.name}">
+                <div class="content">
+                    <h3>${food.name}</h3>
+                    <p>${food.description}</p>
+                    <div class="tags">
+                        ${getTags(food.tags)}
+                    </div>
+                </div>
+            </div>
+            `
+    });
+
+    document.getElementById('cards')!.innerHTML = newInnerHtml;
 
     document.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => {
         document.body.innerHTML += cardViewer('hej', 'med dig', vodkaImage, 'vodka');
