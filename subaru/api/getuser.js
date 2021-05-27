@@ -11,22 +11,14 @@ module.exports = async (req, res) => {
         const Tokens = database.collection('tokens');
         
         const errors = validationResult(req);
-
-        const toUpdate = {
-            name: true,
-            email: true,
-            phone: true
-        };
-        for(let error in errors.array()) toUpdate[error.param] = false;
-
-        const userToUpdate = {
-            name: req.body.name,
-            email: req.body.email,
-            phone: req.body.phone,
+        if(!errors.isEmpty()) {
+            res.status(400).json({
+                success: false,
+                response: 'invalid',
+                errors: errors.array()
+            });
+            return;
         }
-
-        for(let i in userToUpdate) if(!toUpdate[i]) delete userToUpdate[i]
-
         const token = req.body.token;
         const existingToken = await Tokens.findOne({token: token});
         if(!existingToken) {
@@ -37,25 +29,13 @@ module.exports = async (req, res) => {
             return;
         }
 
-        if(userToUpdate.phone) {
-            const userFound = await Users.findOne({phone: req.body.phone});
-            if(userFound) {
-                res.status(400).json({
-                    success: false,
-                    response: 'occupied'
-                });
-                return;
-            }
-        }
-
         const userFound = await Users.findOne({_id: new ObjectId(existingToken.user)});
-
-        const userUpdate = await Users.updateOne({_id: new ObjectId(existingToken.user)}, {$set: userToUpdate}, {upsert: true});
+        
         
         res.status(200).json({
             success: true,
             response: 'success',
-            operations: userUpdate.result.n
+            user: userFound
         });
     } catch(error) {
         console.error('/api/updateuser', error);
