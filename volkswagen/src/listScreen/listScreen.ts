@@ -29,8 +29,8 @@ const sortRelevance = (foodList: any, selectedTags: string[]): any => {
         if (index > 0) {
             let currentScore = 0;
             food.tags.forEach((tag: string) => {
-                if (selectedTags.findIndex( (currentTag: string) => currentTag == tag) !== -1) {
-                    currentScore += 2;
+                if (selectedTags.findIndex( (currentTag: string) => currentTag === tag) !== -1) {
+                    currentScore += 1;
                 }
             });
             currentScore -= food.tags.length;
@@ -40,16 +40,21 @@ const sortRelevance = (foodList: any, selectedTags: string[]): any => {
                 const current = newFoodList[index];
                 newFoodList[index-1] = current;
                 newFoodList[index] = previous;
+                currentScore = previousScore
+
                 didReplace = true;
             }
             previousScore = currentScore;    
         }
     });
 
-    if (didReplace)
+    if (didReplace) {
         return sortRelevance(newFoodList, selectedTags);
-    else 
-        return newFoodList;
+    } else {
+        const first = newFoodList.shift();
+        newFoodList.push(first);
+        return newFoodList.reverse();
+    }
 }
 
 const addCards = async () => {
