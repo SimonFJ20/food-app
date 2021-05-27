@@ -23,7 +23,7 @@ document.head.innerHTML += `
 
 const params = new URLSearchParams(window.location.search);
 
-if(params.has('p')) {
+if(params.has('p') && false) {
     const page = params.get('p');
     
     switch(page) {
