@@ -8,6 +8,7 @@ Food App (i starten med navn "FeedMe") var et skoleprojektet lavet af:
 
 Det var vores afsluttende projekt i Erhvervsinformatik på GF2 på EUX. 
 Opgaven var at lave en app der havde noget med mad at gøre.
+Projektet havde en varighed på 4 uger.
 
 [Se resultat her](https://feedmeapp.netlify.app/)
 
