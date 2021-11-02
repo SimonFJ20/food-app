@@ -1,8 +1,59 @@
-# Food-App (FeedMe working project)
+# Food-App
+
+Food App (i starten med navn "FeedMe") var et skoleprojektet lavet af:
+
+- [Theis Pieter Hollebeek](https://tphollebeek.netlify.app/)
+- [Simon From Jakobsen](https://simonfromjakobsen.netlify.app/)
+- [Maksim Bech](https://www.youtube.com/channel/UCSvZRr6J2j4j8-fQbGMuNWw)
+
+Det var vores afsluttende projekt i Erhvervsinformatik på GF2 på EUX. 
+Opgaven var at lave en app der havde noget med mad at gøre.
+
+[Se resultat her](https://feedmeapp.netlify.app/)
+
+Appen ser flottest ud på telefon, eller ved at trykke `ctrl`+`shift`+`M` på Firefox og Chrome på computeren.
+
+Backenden er skrevet i [NodeJS](https://nodejs.org/en/) med [ExpressJS](https://expressjs.com/) og [MongoDB](https://www.mongodb.com/)
+
+Frontenden er skrevet i [JS/Typescript](https://www.typescriptlang.org/), HTML og SASS på en [Angular](https://angular.io/)-agtig måde, bundled med [Webpack](https://webpack.js.org/), med minimale libraries.
 
 ---
 
-### TODO
+### Filer/mapper
+
+| Navn | Beskrivelse |
+|---|---|
+| [`/chevrolet`](/chevrolet) | Første "frontend" kode i udgangspunkt af skitserne |
+| [`/citröen_berlingo`](/citröen_berlingo) | Oprydning og udbyggelse af [`/chevrolet`](/chevrolet) |
+| [`/concepts`](/concepts) | Forskellige skitser, specifikationer og lidt prototype kode |
+| [`/honda`](/honda) | Prototype af "backend" teknologier |
+| [`/management`](/management) | Lidt forsøgt planlægning |
+| [`/subaru`](/subaru) | Ny backend skrevet fra bunden |
+| [`/suzuki`](/suzuki) | Udbygning af [`/subaru`](/subaru) med ny filstruktur, sidste version |
+| [`/volkswagen`](/volkswagen) | Oprydning og udbyggelse af [`/citröen_berlingo`](/citröen_berlingo), sidste version |
+| [`/web-101`](/web-101) | En lille guide til HTML5, CSS og JavaScript |
+
+### Kode / Sprog
+
+```
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+JSON                             9              1              0           2019
+TypeScript                      53            406             16           1395
+Sass                            27            321              0           1269
+HTML                            32            223              4            766
+JavaScript                      22            145              8            683
+Markdown                         9            226              0            657
+CSS                              3             37              0            166
+-------------------------------------------------------------------------------
+SUM:                           155           1359             28           6955
+-------------------------------------------------------------------------------
+```
+
+---
+
+### DONE
 ##### [Udført] Opgave (Primær Ansvarlig)
 
  - [x] Maksim skal lærer at kunne læse og forstå HTML, CSS og GitHub. (Simon, Maksim)
