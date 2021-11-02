@@ -2,12 +2,6 @@
 
 ---
 
-### Tidsplan
-![tidsplan-1 1 0](https://user-images.githubusercontent.com/28040410/117203019-d3132100-adee-11eb-820c-e5da9a4f1276.png)
-
-
----
-
 ### TODO
 ##### [Udført] Opgave (Primær Ansvarlig)
 
